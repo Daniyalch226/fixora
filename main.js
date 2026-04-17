@@ -16,34 +16,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Mobile Menu Toggle
+    // 2. Mobile Menu Toggle (Sidebar + Backdrop)
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
+    const backdrop = document.querySelector('.menu-backdrop');
     const mobileIcon = mobileBtn ? mobileBtn.querySelector('i') : null;
     
+    const toggleMenu = (show) => {
+        const isOpened = show !== undefined ? show : !navLinks.classList.contains('active');
+        navLinks.classList.toggle('active', isOpened);
+        if (backdrop) backdrop.classList.toggle('active', isOpened);
+        document.body.style.overflow = isOpened ? 'hidden' : '';
+        
+        // Toggle Icon
+        if (mobileIcon) {
+            mobileIcon.setAttribute('data-lucide', isOpened ? 'x' : 'menu');
+            lucide.createIcons();
+        }
+    };
+
     if (mobileBtn && navLinks) {
-        mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Toggle Icon
-            if (mobileIcon) {
-                const isOpened = navLinks.classList.contains('active');
-                mobileIcon.setAttribute('data-lucide', isOpened ? 'x' : 'menu');
-                lucide.createIcons();
-            }
-        });
+        mobileBtn.addEventListener('click', () => toggleMenu());
+        if (backdrop) backdrop.addEventListener('click', () => toggleMenu(false));
 
         // Close menu when a link is clicked
         const links = navLinks.querySelectorAll('a');
         links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                if (mobileIcon) {
-                    mobileIcon.setAttribute('data-lucide', 'menu');
-                    lucide.createIcons();
-                }
-            });
+            link.addEventListener('click', () => toggleMenu(false));
         });
+    }
+
+    // 2.1 Live Activity Text Rotation
+    const liveTextEl = document.getElementById('live-text');
+    if (liveTextEl) {
+        const activities = [
+            "Expert available in Lahore right now",
+            "Someone just booked an AC Repair",
+            "50+ Cleaners active in your area",
+            "Top-rated Electrician arrived in Gulberg",
+            "IT Specialist solving a query live"
+        ];
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % activities.length;
+            liveTextEl.style.opacity = '0';
+            setTimeout(() => {
+                liveTextEl.innerText = activities[index];
+                liveTextEl.style.opacity = '1';
+            }, 300);
+        }, 4000);
     }
 
     // 3. Scroll Reveal Animation

@@ -81,7 +81,9 @@
     </style>
 </head>
 
-<body>
+<body class="home-page">
+    <!-- Menu Backdrop -->
+    <div class="menu-backdrop"></div>
 
     <!-- Header -->
     <header class="header">
@@ -126,28 +128,12 @@
                         <button class="glass-search-btn">Search Pro</button>
                     </div>
 
-                    <div class="trust-avatars">
-                        <div style="display: flex;">
-                            <div class="avatar-icon"
-                                style="z-index: 4; background: linear-gradient(135deg, #10b981, #3b82f6);">JS</div>
-                            <div class="avatar-icon"
-                                style="z-index: 3; background: linear-gradient(135deg, #f59e0b, #ef4444);">US</div>
-                            <div class="avatar-icon"
-                                style="z-index: 2; background: linear-gradient(135deg, #6366f1, #a855f7);">HA</div>
-                            <div class="avatar-icon"
-                                style="z-index: 1; background: linear-gradient(135deg, #ec4899, #8b5cf6);">ZM</div>
+                    <div class="live-activity-badge animate-fade-up">
+                        <div class="live-indicator">
+                            <span class="pulse"></span>
+                            Live
                         </div>
-                        <div style="margin-left: 16px; text-align: left;">
-                            <div style="display: flex; color: #f59e0b; margin-bottom: 4px;">
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
-                            </div>
-                            <p style="margin: 0; font-size: 0.875rem; font-weight: 600; color: var(--dark);">Trusted by
-                                15,000+ Customers</p>
-                        </div>
+                        <p id="live-text">Expert available in Lahore right now</p>
                     </div>
                 </div>
 
@@ -160,10 +146,13 @@
                             alt="Cleaning Service" class="hero-slide">
                         <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
                             alt="Electrician" class="hero-slide">
-                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80"
-                            alt="IT Specialist" class="hero-slide">
-                        <img src="https://images.unsplash.com/photo-1563461660947-507ef49e9c47?auto=format&fit=crop&w=800&q=80"
-                            alt="Home Stylist" class="hero-slide">
+                        
+                        <!-- Mobile Only Background Video -->
+                        <div class="mobile-video-container">
+                            <video autoplay muted loop playsinline class="hero-bg-video">
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-working-at-home-with-a-computer-4831-large.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
 
                     <!-- Floating Cards -->
