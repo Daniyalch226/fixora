@@ -606,6 +606,19 @@ section {
     margin-right: -50vw;
 }
 
+@media (max-width: 768px) {
+    .scroller-container {
+        width: 100%;
+        left: auto;
+        right: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .scroller-track .card {
+        width: 300px;
+    }
+}
+
 /* Fading edges for scroller */
 .scroller-container::before,
 .scroller-container::after {
@@ -759,15 +772,26 @@ section {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--glass-border);
-        padding: 24px 5%;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        background: var(--white);
+        border-bottom: 2px solid var(--primary);
+        padding: 40px 24px;
+        box-shadow: var(--shadow-lg);
         z-index: 100;
         text-align: center;
-        gap: 20px;
+        gap: 24px;
+    }
+    
+    .nav-links .nav-link {
+        font-size: 1.25rem;
+        padding: 10px;
+        width: 100%;
+        display: block;
+    }
+
+    .nav-links .btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
     }
     
     .nav-links.active {

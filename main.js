@@ -16,14 +16,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Mobile Menu Toggle (Simplified for now)
+    // 2. Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
+    const mobileIcon = mobileBtn ? mobileBtn.querySelector('i') : null;
     
-    if (mobileBtn) {
+    if (mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {
-            // In a real app, this would show a sidebar or expanding menu
-            alert('Mobile menu clicked! (To be implemented with a full sidebar in a real project)');
+            navLinks.classList.toggle('active');
+            
+            // Toggle Icon
+            if (mobileIcon) {
+                const isOpened = navLinks.classList.contains('active');
+                mobileIcon.setAttribute('data-lucide', isOpened ? 'x' : 'menu');
+                lucide.createIcons();
+            }
+        });
+
+        // Close menu when a link is clicked
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                if (mobileIcon) {
+                    mobileIcon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            });
         });
     }
 
