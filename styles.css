@@ -739,6 +739,15 @@ section {
     }
 }
 
+@keyframes scrollRight {
+    from {
+        transform: translateX(calc(-50% - 15px));
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
 /* Platform Growth Dashboard Stats */
 .dashboard-stats {
     position: relative;
@@ -801,6 +810,67 @@ section {
     color: var(--dark);
     margin-bottom: 8px;
     line-height: 1;
+}
+
+/* Review Card Styles */
+.review-card {
+    width: 400px;
+    padding: 30px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.review-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.review-rating {
+    display: flex;
+    gap: 2px;
+    color: #f59e0b;
+    margin-top: 4px;
+}
+
+.review-content {
+    color: var(--text-light);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.scroller-track.reverse {
+    animation: scrollRight 30s linear infinite;
+}
+
+@media (max-width: 500px) {
+    .review-card {
+        width: 300px;
+        padding: 20px;
+    }
 }
 
 .stat-item p {
