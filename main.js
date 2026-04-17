@@ -3,6 +3,9 @@
 */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Page Load Animation
+    document.body.classList.add('loaded');
+
     // 1. Sticky Header
     const header = document.querySelector('.header');
     window.addEventListener('scroll', () => {
@@ -45,14 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entries[0].isIntersecting) {
                 stats.forEach(stat => {
                     const target = parseInt(stat.getAttribute('data-target'));
+                    const prefix = stat.getAttribute('data-prefix') || '';
+                    const suffix = stat.getAttribute('data-suffix') || '';
+                    
                     const count = () => {
-                        const current = parseInt(stat.innerText);
+                        const currentText = stat.innerText.replace(/[^0-9]/g, '');
+                        const current = parseInt(currentText) || 0;
                         const increment = target / 50;
+                        
                         if (current < target) {
-                            stat.innerText = Math.ceil(current + increment);
+                            stat.innerText = prefix + Math.ceil(current + increment) + suffix;
                             setTimeout(count, 30);
                         } else {
-                            stat.innerText = target + '+';
+                            stat.innerText = prefix + target + suffix;
                         }
                     };
                     count();
@@ -80,4 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1500);
         }
     };
+
+    // 6. Hero Image Crossfade Slider
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    if (heroSlides.length > 0) {
+        let currentSlide = 0;
+        setInterval(() => {
+            heroSlides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            heroSlides[currentSlide].classList.add('active');
+        }, 5000); // Crossfade every 5 seconds
+    }
 });

@@ -1,47 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fixora | Fast, Reliable, and Smart Service Booking Platform</title>
-    <meta name="description" content="Fixora connects you with professional doorstep and digital services across Pakistan. Fast, reliable, and smart booking.">
-    
+    <meta name="description"
+        content="Fixora connects you with professional doorstep and digital services across Pakistan. Fast, reliable, and smart booking.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Homepage Specific Styles */
-        .hero {
-            padding: 160px 0 100px;
-            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.05), transparent),
-                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent);
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 24px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .stats {
             background: var(--bg-alt);
             padding: 60px 0;
@@ -95,15 +74,13 @@
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
             .stats-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header -->
@@ -129,34 +106,126 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+
         <div class="container animate-fade-up">
-            <div class="hero-content">
-                <span class="section-subtitle">The Future of Services</span>
-                <h1>Fast, Reliable, and <span class="text-gradient">Smart</span> Service Booking Platform</h1>
-                <p>Connecting people with top-rated professionals for home doorstep and digital services across Pakistan. Quality guaranteed, every time.</p>
-                <div style="display: flex; gap: 16px; justify-content: center;">
-                    <a href="services.html" class="btn btn-primary">Explore Services <i data-lucide="arrow-right"></i></a>
-                    <a href="booking.html" class="btn btn-outline">Book a Pro</a>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="section-subtitle" style="text-align: left; justify-content: flex-start;">The Future of
+                        Services</span>
+                    <h1>Fast, Reliable, and <span class="text-gradient">Smart</span> Service Booking</h1>
+                    <p>Experience the ultimate platform connecting you with top-tier professionals for doorstep and
+                        digital services. Quality guaranteed, every single time.</p>
+
+                    <div class="glass-search-form">
+                        <i data-lucide="search" style="color: var(--text-light);"></i>
+                        <input type="text" class="glass-search-input"
+                            placeholder="What service do you need? (e.g. Electrician)">
+                        <button class="glass-search-btn">Search Pro</button>
+                    </div>
+
+                    <div class="trust-avatars">
+                        <div style="display: flex;">
+                            <div class="avatar-icon"
+                                style="z-index: 4; background: linear-gradient(135deg, #10b981, #3b82f6);">JS</div>
+                            <div class="avatar-icon"
+                                style="z-index: 3; background: linear-gradient(135deg, #f59e0b, #ef4444);">US</div>
+                            <div class="avatar-icon"
+                                style="z-index: 2; background: linear-gradient(135deg, #6366f1, #a855f7);">HA</div>
+                            <div class="avatar-icon"
+                                style="z-index: 1; background: linear-gradient(135deg, #ec4899, #8b5cf6);">ZM</div>
+                        </div>
+                        <div style="margin-left: 16px; text-align: left;">
+                            <div style="display: flex; color: #f59e0b; margin-bottom: 4px;">
+                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
+                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
+                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
+                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
+                                <i data-lucide="star" style="width: 16px; height: 16px; fill: currentColor;"></i>
+                            </div>
+                            <p style="margin: 0; font-size: 0.875rem; font-weight: 600; color: var(--dark);">Trusted by
+                                15,000+ Customers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal reveal-delay-2 active">
+                    <div class="hero-image-wrapper">
+                        <!-- Crossfading Slider Images -->
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+                            alt="Professional Worker" class="hero-slide active">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
+                            alt="Cleaning Service" class="hero-slide">
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+                            alt="Electrician" class="hero-slide">
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=80"
+                            alt="IT Specialist" class="hero-slide">
+                        <img src="https://images.unsplash.com/photo-1563461660947-507ef49e9c47?auto=format&fit=crop&w=800&q=80"
+                            alt="Home Stylist" class="hero-slide">
+                    </div>
+
+                    <!-- Floating Cards -->
+                    <div class="floating-card fc-top">
+                        <div class="fc-icon"><i data-lucide="shield-check"></i></div>
+                        <div class="fc-content">
+                            <h4>100% Verified</h4>
+                            <p>Expert Professionals</p>
+                        </div>
+                    </div>
+
+                    <div class="floating-card fc-bottom">
+                        <div class="fc-icon" style="background: linear-gradient(135deg, #f59e0b, #fb923c);"><i
+                                data-lucide="zap"></i></div>
+                        <div class="fc-content">
+                            <h4>Fast Booking</h4>
+                            <p>Under 2 Minutes</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3 class="stat-number" data-target="15000">0</h3>
-                    <p>Satisfied Clients</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number" data-target="120">0</h3>
-                    <p>Verified Services</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-number" data-target="500">0</h3>
-                    <p>Top Professionals</p>
+    <section class="stats dashboard-stats">
+        <svg class="stats-bg-graph" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="var(--primary)" fill-opacity="0.1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,144C672,139,768,181,864,197.3C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-subtitle">Platform Growth</span>
+                <h2 style="font-size: 2.5rem; margin-top: 10px;">Driving Real Results</h2>
+            </div>
+
+            <div class="stats-glass-panel reveal">
+                <div class="stats-grid">
+                    <div class="stat-item reveal-delay-1">
+                        <div class="stat-icon"><i data-lucide="users"></i></div>
+                        <h3 class="stat-number" data-target="15" data-suffix="K+">0</h3>
+                        <p>Satisfied Clients</p>
+                        <div class="trend up"><i data-lucide="trending-up"></i> +12% this month</div>
+                    </div>
+                    <div class="stat-item reveal-delay-2">
+                        <div class="stat-icon"><i data-lucide="briefcase"></i></div>
+                        <h3 class="stat-number" data-target="120" data-suffix="+">0</h3>
+                        <p>Verified Services</p>
+                        <div class="trend up"><i data-lucide="trending-up"></i> +5% this month</div>
+                    </div>
+                    <div class="stat-item reveal-delay-3">
+                        <div class="stat-icon"><i data-lucide="award"></i></div>
+                        <h3 class="stat-number" data-target="500" data-suffix="+">0</h3>
+                        <p>Top Professionals</p>
+                        <div class="trend up"><i data-lucide="trending-up"></i> +24 new pros</div>
+                    </div>
+                    <div class="stat-item reveal-delay-4">
+                        <div class="stat-icon"><i data-lucide="banknote"></i></div>
+                        <h3 class="stat-number" data-target="450" data-prefix="$" data-suffix="K+">0</h3>
+                        <p>Revenue Generated</p>
+                        <div class="trend up"><i data-lucide="trending-up"></i> +18% growth</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,33 +236,76 @@
         <div class="container">
             <span class="section-subtitle">Our Categories</span>
             <h2 class="section-title">Popular Service Categories</h2>
-            
-            <div class="categories-grid">
-                <div class="card category-card reveal">
-                    <div class="category-icon">
-                        <i data-lucide="home"></i>
-                    </div>
-                    <h3>Home Services</h3>
-                    <p>Cleaning, Painting, Plumbing, and more at your doorstep.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View All <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
-                </div>
 
-                <div class="card category-card reveal">
-                    <div class="category-icon">
-                        <i data-lucide="monitor"></i>
+            <div class="scroller-container">
+                <div class="scroller-track">
+                    <!-- Original Cards -->
+                    <div class="card category-card">
+                        <div class="category-icon">
+                            <i data-lucide="home"></i>
+                        </div>
+                        <h3>Home Services</h3>
+                        <p>Cleaning, Painting, Plumbing, and more at your doorstep.</p>
+                        <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
+                            All
+                            <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
                     </div>
-                    <h3>IT & Digital</h3>
-                    <p>Web Development, UI/UX Design, and Mobile Apps.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View All <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
-                </div>
 
-                <div class="card category-card reveal">
-                    <div class="category-icon">
-                        <i data-lucide="settings"></i>
+                    <div class="card category-card">
+                        <div class="category-icon">
+                            <i data-lucide="monitor"></i>
+                        </div>
+                        <h3>IT & Digital</h3>
+                        <p>Web Development, UI/UX Design, and Mobile Apps.</p>
+                        <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
+                            All
+                            <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
                     </div>
-                    <h3>Repair Services</h3>
-                    <p>AC Repair, Appliances, Mobile & Laptop fixing.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View All <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+
+                    <div class="card category-card">
+                        <div class="category-icon">
+                            <i data-lucide="settings"></i>
+                        </div>
+                        <h3>Repair Services</h3>
+                        <p>AC Repair, Appliances, Mobile & Laptop fixing.</p>
+                        <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
+                            All
+                            <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+                    </div>
+
+                    <!-- Duplicated Cards for Infinite Loop -->
+                    <div class="card category-card" aria-hidden="true">
+                        <div class="category-icon">
+                            <i data-lucide="home"></i>
+                        </div>
+                        <h3>Home Services</h3>
+                        <p>Cleaning, Painting, Plumbing, and more at your doorstep.</p>
+                        <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
+                            All
+                            <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+                    </div>
+
+                    <div class="card category-card" aria-hidden="true">
+                        <div class="category-icon">
+                            <i data-lucide="monitor"></i>
+                        </div>
+                        <h3>IT & Digital</h3>
+                        <p>Web Development, UI/UX Design, and Mobile Apps.</p>
+                        <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
+                            All
+                            <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+                    </div>
+
+                    <div class="card category-card" aria-hidden="true">
+                        <div class="category-icon">
+                            <i data-lucide="settings"></i>
+                        </div>
+                        <h3>Repair Services</h3>
+                        <p>AC Repair, Appliances, Mobile & Laptop fixing.</p>
+                        <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
+                            All
+                            <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -205,44 +317,52 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
                 <div class="reveal">
                     <span class="section-subtitle" style="text-align: left;">Why Choose Fixora</span>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 24px;">Experience the most reliable service marketplace</h2>
-                    <p style="color: var(--text-light); margin-bottom: 32px;">We bridge the gap between skilled professionals and customers who need quality work done without the hassle.</p>
-                    
+                    <h2 style="font-size: 2.5rem; margin-bottom: 24px;">Experience the most reliable service marketplace
+                    </h2>
+                    <p style="color: var(--text-light); margin-bottom: 32px;">We bridge the gap between skilled
+                        professionals and customers who need quality work done without the hassle.</p>
+
                     <ul style="display: grid; gap: 20px;">
                         <li style="display: flex; gap: 16px; align-items: start;">
-                            <div style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
+                            <div
+                                style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
                                 <i data-lucide="check" style="width: 20px; height: 20px;"></i>
                             </div>
                             <div>
                                 <h4 style="margin-bottom: 4px;">Verified Professionals</h4>
-                                <p style="font-size: 0.875rem; color: var(--text-light);">All our pros go through a rigorous background check.</p>
+                                <p style="font-size: 0.875rem; color: var(--text-light);">All our pros go through a
+                                    rigorous background check.</p>
                             </div>
                         </li>
                         <li style="display: flex; gap: 16px; align-items: start;">
-                            <div style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
+                            <div
+                                style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
                                 <i data-lucide="clock" style="width: 20px; height: 20px;"></i>
                             </div>
                             <div>
                                 <h4 style="margin-bottom: 4px;">Fast Booking</h4>
-                                <p style="font-size: 0.875rem; color: var(--text-light);">Book any service in under 2 minutes through our platform.</p>
+                                <p style="font-size: 0.875rem; color: var(--text-light);">Book any service in under 2
+                                    minutes through our platform.</p>
                             </div>
                         </li>
                         <li style="display: flex; gap: 16px; align-items: start;">
-                            <div style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
+                            <div
+                                style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
                                 <i data-lucide="shield-check" style="width: 20px; height: 20px;"></i>
                             </div>
                             <div>
                                 <h4 style="margin-bottom: 4px;">Secure Payments</h4>
-                                <p style="font-size: 0.875rem; color: var(--text-light);">Multiple secure payment options for your piece of mind.</p>
+                                <p style="font-size: 0.875rem; color: var(--text-light);">Multiple secure payment
+                                    options for your piece of mind.</p>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <!-- Placeholder for image/graphic -->
-                <div class="reveal" style="background: var(--gradient); border-radius: var(--radius-lg); height: 450px; position: relative; overflow: hidden; box-shadow: var(--shadow-lg);">
-                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: white; opacity: 0.2;">
-                        <i data-lucide="zap" style="width: 200px; height: 200px;"></i>
-                    </div>
+                <!-- Image replacing placeholder -->
+                <div class="reveal"
+                    style="border-radius: var(--radius-lg); height: 450px; position: relative; overflow: hidden; box-shadow: var(--shadow-lg);">
+                    <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=800&q=80"
+                        alt="Professional Repair Worker" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -285,13 +405,14 @@
                 </div>
                 <div>
                     <h4 class="footer-title">Contact</h4>
-                    <p style="color: #94a3b8; font-size: 0.875rem;">Plot 123, Block A, Commercial Area, Lahore, Pakistan</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem;">Plot 123, Block A, Commercial Area, Lahore, Pakistan
+                    </p>
                     <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;">support@fixora.com</p>
-                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;">+92 300 1234567</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;">+92 304 4762204</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Premium Experience.</p>
+                <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Daniyal Chaudhary.</p>
             </div>
         </div>
     </footer>
@@ -303,4 +424,5 @@
     </script>
     <script src="main.js"></script>
 </body>
+
 </html>
