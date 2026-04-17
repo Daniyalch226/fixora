@@ -961,9 +961,11 @@ section {
         right: -100%;
         width: 300px;
         height: 100vh;
-        background: var(--white);
+        background: rgba(255, 255, 255, 0.98); /* Near-solid background */
+        backdrop-filter: blur(20px); /* Deep blur for premium feel and to obscure background */
+        -webkit-backdrop-filter: blur(20px);
         padding: 80px 30px;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        box-shadow: -15px 0 45px rgba(0,0,0,0.15); /* Stronger shadow for depth */
         z-index: 2000;
         text-align: left;
         gap: 24px;
