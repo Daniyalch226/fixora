@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Professionals | Fixora - Verified Experts</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .pros-hero {
+            padding: 140px 0 60px;
+            background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
+            text-align: center;
+        }
+
+        .pros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .pro-card {
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pro-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        .pro-info {
+            padding: 24px;
+        }
+
+        .pro-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .pro-name {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .pro-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        .pro-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+            margin-top: auto;
+        }
+
+        .pro-location {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .verified-badge {
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i data-lucide="zap" style="color: var(--primary);"></i>
+                Fix<span>ora.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="professionals.html" class="nav-link active">Professionals</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="btn btn-primary">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="pros-hero">
+        <div class="container animate-fade-up">
+            <span class="section-subtitle">Meet our experts</span>
+            <h1 class="section-title" style="margin-bottom: 20px;">Top Rated <span class="text-gradient">Service Professionals</span></h1>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">Our professionals are background-checked, highly skilled, and ready to help you with your next task.</p>
+        </div>
+    </section>
+
+    <!-- Professionals Grid -->
+    <section>
+        <div class="container">
+            <div class="pros-grid">
+                
+                <!-- Pro 1 -->
+                <div class="card pro-card reveal">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=300" alt="Professional" class="pro-image">
+                    <div class="pro-info">
+                        <span class="pro-tag">Home Improvement</span>
+                        <h3 class="pro-name">Ahmed Khan</h3>
+                        <div class="pro-rating">
+                            <i data-lucide="star" style="fill: #f59e0b; width: 14px;"></i> 4.9 (124 reviews)
+                        </div>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 20px;">Expert plumber and electrician with over 10 years of experience in Karachi.</p>
+                        <div class="pro-meta">
+                            <div class="pro-location"><i data-lucide="map-pin" style="width: 14px;"></i> Karachi</div>
+                            <div class="verified-badge"><i data-lucide="shield-check" style="width: 14px;"></i> Verified</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro 2 -->
+                <div class="card pro-card reveal">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=300" alt="Professional" class="pro-image">
+                    <div class="pro-info">
+                        <span class="pro-tag">Tech & Design</span>
+                        <h3 class="pro-name">Zainab Malik</h3>
+                        <div class="pro-rating">
+                            <i data-lucide="star" style="fill: #f59e0b; width: 14px;"></i> 5.0 (89 reviews)
+                        </div>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 20px;">Senior UI/UX Designer specializing in React apps and modern web interfaces.</p>
+                        <div class="pro-meta">
+                            <div class="pro-location"><i data-lucide="map-pin" style="width: 14px;"></i> Lahore</div>
+                            <div class="verified-badge"><i data-lucide="shield-check" style="width: 14px;"></i> Verified</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro 3 -->
+                <div class="card pro-card reveal">
+                    <img src="https://images.unsplash.com/photo-1544168190-79c17527004f?auto=format&fit=crop&w=400&h=300" alt="Professional" class="pro-image">
+                    <div class="pro-info">
+                        <span class="pro-tag">Clean & Polish</span>
+                        <h3 class="pro-name">Bilal Siddiqui</h3>
+                        <div class="pro-rating">
+                            <i data-lucide="star" style="fill: #f59e0b; width: 14px;"></i> 4.8 (210 reviews)
+                        </div>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 20px;">Doorstep deep cleaning specialist with a focus on hygiene and sanitization.</p>
+                        <div class="pro-meta">
+                            <div class="pro-location"><i data-lucide="map-pin" style="width: 14px;"></i> Islamabad</div>
+                            <div class="verified-badge"><i data-lucide="shield-check" style="width: 14px;"></i> Verified</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro 4 -->
+                <div class="card pro-card reveal">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=300" alt="Professional" class="pro-image">
+                    <div class="pro-info">
+                        <span class="pro-tag">IT Services</span>
+                        <h3 class="pro-name">Usman Shah</h3>
+                        <div class="pro-rating">
+                            <i data-lucide="star" style="fill: #f59e0b; width: 14px;"></i> 4.7 (56 reviews)
+                        </div>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 20px;">Network specialist and software support pro. CCTV and WiFi setup expert.</p>
+                        <div class="pro-meta">
+                            <div class="pro-location"><i data-lucide="map-pin" style="width: 14px;"></i> Faisalabad</div>
+                            <div class="verified-badge"><i data-lucide="shield-check" style="width: 14px;"></i> Verified</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro 5 -->
+                <div class="card pro-card reveal">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=400&h=300" alt="Professional" class="pro-image">
+                    <div class="pro-info">
+                        <span class="pro-tag">Repair Expert</span>
+                        <h3 class="pro-name">Hamza Ali</h3>
+                        <div class="pro-rating">
+                            <i data-lucide="star" style="fill: #f59e0b; width: 14px;"></i> 4.9 (92 reviews)
+                        </div>
+                        <p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 20px;">Electronic appliances master. Fixed over 1000+ AC units and fridges.</p>
+                        <div class="pro-meta">
+                            <div class="pro-location"><i data-lucide="map-pin" style="width: 14px;"></i> Rawalpindi</div>
+                            <div class="verified-badge"><i data-lucide="shield-check" style="width: 14px;"></i> Verified</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-outline">Load More Professionals</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <section>
+        <div class="container reveal">
+            <div style="background: var(--gradient); padding: 60px; border-radius: var(--radius-lg); text-align: center; color: white;">
+                <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Are you a skilled Professional?</h2>
+                <p style="opacity: 0.9; max-width: 600px; margin: 0 auto 32px;">Join the Fixora network and grow your business with us. We connect you with thousands of customers looking for your skills.</p>
+                <a href="contact.html" class="btn btn-white" style="background: white; color: var(--primary);">Join as a Professional</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 24px;">
+                        <i data-lucide="zap" style="color: var(--primary);"></i>
+                        Fix<span>ora.</span>
+                    </a>
+                    <p>Verified Professionals. Guaranteed Satisfaction.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="booking.html">Book Service</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fixora Professionals. Reliable & Verified.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="main.js"></script>
+</body>
+</html>

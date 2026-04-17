@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixora | Fast, Reliable, and Smart Service Booking Platform</title>
+    <meta name="description" content="Fixora connects you with professional doorstep and digital services across Pakistan. Fast, reliable, and smart booking.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Homepage Specific Styles */
+        .hero {
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.05), transparent),
+                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent);
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats {
+            background: var(--bg-alt);
+            padding: 60px 0;
+            margin-bottom: 80px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i data-lucide="zap" style="color: var(--primary);"></i>
+                Fix<span>ora.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="professionals.html" class="nav-link">Professionals</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="btn btn-primary">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container animate-fade-up">
+            <div class="hero-content">
+                <span class="section-subtitle">The Future of Services</span>
+                <h1>Fast, Reliable, and <span class="text-gradient">Smart</span> Service Booking Platform</h1>
+                <p>Connecting people with top-rated professionals for home doorstep and digital services across Pakistan. Quality guaranteed, every time.</p>
+                <div style="display: flex; gap: 16px; justify-content: center;">
+                    <a href="services.html" class="btn btn-primary">Explore Services <i data-lucide="arrow-right"></i></a>
+                    <a href="booking.html" class="btn btn-outline">Book a Pro</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="stat-number" data-target="15000">0</h3>
+                    <p>Satisfied Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number" data-target="120">0</h3>
+                    <p>Verified Services</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number" data-target="500">0</h3>
+                    <p>Top Professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section id="services">
+        <div class="container">
+            <span class="section-subtitle">Our Categories</span>
+            <h2 class="section-title">Popular Service Categories</h2>
+            
+            <div class="categories-grid">
+                <div class="card category-card reveal">
+                    <div class="category-icon">
+                        <i data-lucide="home"></i>
+                    </div>
+                    <h3>Home Services</h3>
+                    <p>Cleaning, Painting, Plumbing, and more at your doorstep.</p>
+                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View All <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+                </div>
+
+                <div class="card category-card reveal">
+                    <div class="category-icon">
+                        <i data-lucide="monitor"></i>
+                    </div>
+                    <h3>IT & Digital</h3>
+                    <p>Web Development, UI/UX Design, and Mobile Apps.</p>
+                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View All <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+                </div>
+
+                <div class="card category-card reveal">
+                    <div class="category-icon">
+                        <i data-lucide="settings"></i>
+                    </div>
+                    <h3>Repair Services</h3>
+                    <p>AC Repair, Appliances, Mobile & Laptop fixing.</p>
+                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View All <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="background-color: var(--bg-alt);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                <div class="reveal">
+                    <span class="section-subtitle" style="text-align: left;">Why Choose Fixora</span>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 24px;">Experience the most reliable service marketplace</h2>
+                    <p style="color: var(--text-light); margin-bottom: 32px;">We bridge the gap between skilled professionals and customers who need quality work done without the hassle.</p>
+                    
+                    <ul style="display: grid; gap: 20px;">
+                        <li style="display: flex; gap: 16px; align-items: start;">
+                            <div style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
+                                <i data-lucide="check" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 4px;">Verified Professionals</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-light);">All our pros go through a rigorous background check.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 16px; align-items: start;">
+                            <div style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
+                                <i data-lucide="clock" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 4px;">Fast Booking</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-light);">Book any service in under 2 minutes through our platform.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 16px; align-items: start;">
+                            <div style="color: var(--primary); background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 50%;">
+                                <i data-lucide="shield-check" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 4px;">Secure Payments</h4>
+                                <p style="font-size: 0.875rem; color: var(--text-light);">Multiple secure payment options for your piece of mind.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Placeholder for image/graphic -->
+                <div class="reveal" style="background: var(--gradient); border-radius: var(--radius-lg); height: 450px; position: relative; overflow: hidden; box-shadow: var(--shadow-lg);">
+                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: white; opacity: 0.2;">
+                        <i data-lucide="zap" style="width: 200px; height: 200px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 24px;">
+                        <i data-lucide="zap" style="color: var(--primary);"></i>
+                        Fix<span>ora.</span>
+                    </a>
+                    <p>Making everyday services simple, fast, and reliable for everyone across Pakistan.</p>
+                    <div style="display: flex; gap: 16px; margin-top: 24px;">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="professionals.html">Professionals</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <p style="color: #94a3b8; font-size: 0.875rem;">Plot 123, Block A, Commercial Area, Lahore, Pakistan</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;">support@fixora.com</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;">+92 300 1234567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Premium Experience.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

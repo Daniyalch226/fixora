@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Fixora - We're Here to Help</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+            background: var(--bg-alt);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-method {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-method h3 {
+            font-size: 1.125rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-method p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            background: #e2e8f0;
+            border-radius: var(--radius-lg);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #cbd5e1;
+        }
+
+        @media (max-width: 991px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i data-lucide="zap" style="color: var(--primary);"></i>
+                Fix<span>ora.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="professionals.html" class="nav-link">Professionals</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="booking.html" class="btn btn-primary">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="contact-hero">
+        <div class="container animate-fade-up">
+            <span class="section-subtitle">Get in touch</span>
+            <h1 class="section-title" style="margin-bottom: 20px;">We'd Love to <span class="text-gradient">Hear From
+                    You</span></h1>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">Have questions about our services or
+                want to join as a professional? Our team is ready to assist you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Grid -->
+    <section>
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- Info Column -->
+                <div class="contact-info">
+                    <div class="card contact-method reveal">
+                        <div class="contact-icon">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>support@fixora.com</p>
+                            <p>info@fixora.com</p>
+                        </div>
+                    </div>
+
+                    <div class="card contact-method reveal">
+                        <div class="contact-icon">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+92 304 4762204</p>
+                            <p>Mon - Sun, 9am - 9pm</p>
+                        </div>
+                    </div>
+
+                    <div class="card contact-method reveal">
+                        <div class="contact-icon">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>Plot 123, Block A, Commercial Area,</p>
+                            <p>Lahore, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="card reveal" style="padding: 40px;">
+                    <form onsubmit="simulateFormSubmit(event, 'Message sent! We\'ll get back to you within 24 hours.')">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Subject</label>
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="booking">Booking Issue</option>
+                                <option value="pro">Join as Professional</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="6" placeholder="How can we help you?"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 100%; justify-content: center; padding: 16px;">
+                            Send Message <i data-lucide="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Visual Map Placeholder -->
+            <div class="map-placeholder reveal">
+                <div style="text-align: center; color: var(--text-light);">
+                    <i data-lucide="map" style="width: 48px; height: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
+                    <p style="font-weight: 600;">Interactive Map Placeholder</p>
+                    <p style="font-size: 0.875rem;">(Google Maps API would be integrated here)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 24px;">
+                        <i data-lucide="zap" style="color: var(--primary);"></i>
+                        Fix<span>ora.</span>
+                    </a>
+                    <p>Pakistan's most reliable doorstep service platform.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="professionals.html">Professionals</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 16px;">Get updates on new services and
+                        offers.</p>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="email" class="form-control"
+                            style="background: #1e293b; border-color: #334155; color: white;" placeholder="Enter email">
+                        <button class="btn btn-primary" style="padding: 8px 16px;"><i data-lucide="send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fixora. Built with Premium Quality.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="main.js"></script>
+</body>
+
+</html>

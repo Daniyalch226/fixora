@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Service | Fixora - Reliable Help in Pakistan</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .booking-hero {
+            padding: 140px 0 60px;
+            background: linear-gradient(to right, #f8fafc, #eff6ff);
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .booking-card {
+            padding: 40px;
+        }
+
+        .info-card {
+            background: var(--gradient);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-md);
+            height: fit-content;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .info-item i {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .info-item h4 {
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .info-item p {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 991px) {
+            .booking-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i data-lucide="zap" style="color: var(--primary);"></i>
+                Fix<span>ora.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="professionals.html" class="nav-link">Professionals</a></li>
+                <li><a href="booking.html" class="nav-link active">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="btn btn-primary">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="booking-hero">
+        <div class="container reveal">
+            <span class="section-subtitle">Secure Your Slot</span>
+            <h1 style="font-size: 2.5rem; margin-bottom: 12px;">Book Your <span class="text-gradient">Professional Service</span></h1>
+            <p style="color: var(--text-light);">Fill out the form below and we'll match you with the best professional in your area.</p>
+            
+            <div class="booking-grid">
+                <!-- Booking Form -->
+                <div class="card booking-card">
+                    <form id="bookingForm" onsubmit="simulateFormSubmit(event, 'Your booking request has been received! Our team will contact you shortly.')">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="+92 3XX XXXXXXX" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">City in Pakistan</label>
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select your city</option>
+                                <option value="karachi">Karachi</option>
+                                <option value="lahore">Lahore</option>
+                                <option value="islamabad">Islamabad</option>
+                                <option value="faisalabad">Faisalabad</option>
+                                <option value="rawalpindi">Rawalpindi</option>
+                                <option value="peshawar">Peshawar</option>
+                                <option value="multan">Multan</option>
+                                <option value="sialkot">Sialkot</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Service Category</label>
+                            <select class="form-control" id="serviceSelect" required>
+                                <option value="" disabled selected>Choose a service</option>
+                                <optgroup label="Home Services">
+                                    <option value="cleaning">Home Cleaning</option>
+                                    <option value="painting">House Painting</option>
+                                    <option value="plumbing">Plumbing</option>
+                                    <option value="electrical">Electrical Repair</option>
+                                </optgroup>
+                                <optgroup label="IT & Digital">
+                                    <option value="webdev">Web Development</option>
+                                    <option value="uiux">UI/UX Design</option>
+                                    <option value="react">React Apps</option>
+                                </optgroup>
+                                <optgroup label="Installation">
+                                    <option value="cctv">CCTV Setup</option>
+                                    <option value="wifi">WiFi Networking</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Service Description</label>
+                            <textarea class="form-control" rows="4" placeholder="Briefly describe your requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 16px;">
+                            Confirm Booking <i data-lucide="calendar"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info Column -->
+                <div class="info-card reveal">
+                    <h3 style="color: white; margin-bottom: 32px; font-size: 1.5rem;">Why Book with Fixora?</h3>
+                    
+                    <div class="info-item">
+                        <i data-lucide="shield-check"></i>
+                        <div>
+                            <h4>Verified Experts</h4>
+                            <p>Every professional on our platform is background-checked and vetted for skill.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i data-lucide="clock"></i>
+                        <div>
+                            <h4>On-Time Service</h4>
+                            <p>We value your time. Our pros arrive exactly when scheduled, or you get a discount.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i data-lucide="banknote"></i>
+                        <div>
+                            <h4>Transparent Pricing</h4>
+                            <p>No hidden costs. You see the estimated price before you confirm your booking.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2);">
+                        <p style="font-size: 0.75rem; opacity: 0.7;">Need help? Contact our 24/7 support line at <br><strong>+92 300 1234567</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 24px;">
+                        <i data-lucide="zap" style="color: var(--primary);"></i>
+                        Fix<span>ora.</span>
+                    </a>
+                    <p>Pakistan's most trusted service marketplace.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Pages</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="professionals.html">Professionals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="section-title" style="color: white; text-align: left; font-size: 1.5rem; margin-bottom: 20px;">Newsletter</h2>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 16px;">Get updates on new services and offers.</p>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="email" class="form-control" style="background: #1e293b; border-color: #334155; color: white;" placeholder="Email">
+                        <button class="btn btn-primary" style="padding: 8px 16px;"><i data-lucide="send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fixora. Secure & Professional.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Handle URL parameters for service selection
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceParam = urlParams.get('service');
+        if (serviceParam) {
+            const select = document.getElementById('serviceSelect');
+            if (select) select.value = serviceParam;
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Fixora - Professional Local & Digital Services</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .services-hero {
+            padding: 140px 0 60px;
+            background: var(--bg-alt);
+            text-align: center;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: -30px auto 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-inner {
+            background: var(--white);
+            padding: 10px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #e2e8f0;
+        }
+
+        .search-inner input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .search-inner .btn {
+            padding: 12px 24px;
+        }
+
+        .category-section {
+            padding-bottom: 60px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .category-header i {
+            color: var(--primary);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 24px;
+        }
+
+        .service-icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .book-link {
+            margin-top: auto;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .book-link:hover {
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i data-lucide="zap" style="color: var(--primary);"></i>
+                Fix<span>ora.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="professionals.html" class="nav-link">Professionals</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="btn btn-primary">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="services-hero">
+        <div class="container">
+            <span class="section-subtitle">What we offer</span>
+            <h1 class="section-title" style="margin-bottom: 20px;">Comprehensive Services for <span class="text-gradient">Every Need</span></h1>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">Browse or search through our wide range of professional services designed to make your life easier.</p>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="container search-container">
+        <div class="search-inner">
+            <i data-lucide="search" style="margin-left: 15px; align-self: center; color: var(--text-light);"></i>
+            <input type="text" id="serviceSearch" placeholder="Search for cleaning, painting, web design...">
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </div>
+
+    <!-- Services Grid -->
+    <section>
+        <div class="container">
+            
+            <!-- Category: Home & Doorstep -->
+            <div class="category-section reveal" id="home-services">
+                <div class="category-header">
+                    <i data-lucide="home"></i>
+                    <h2>Home & Doorstep Services</h2>
+                </div>
+                <div class="service-grid">
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="sparkles"></i></div>
+                        <h3>Deep Cleaning</h3>
+                        <p>Professional home cleaning for all rooms including kitchen and bathrooms.</p>
+                        <a href="booking.html?service=cleaning" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="paintbrush"></i></div>
+                        <h3>House Painting</h3>
+                        <p>Revitalize your home with expert interior and exterior painting services.</p>
+                        <a href="booking.html?service=painting" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="droplet"></i></div>
+                        <h3>Plumbing Work</h3>
+                        <p>Quick fixes for leaks, tap installations, and drainage solutions.</p>
+                        <a href="booking.html?service=plumbing" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="zap"></i></div>
+                        <h3>Electrical Repair</h3>
+                        <p>Safety-first electrical troubleshooting, wiring, and fan installation.</p>
+                        <a href="booking.html?service=electrical" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: IT & Digital -->
+            <div class="category-section reveal" id="it-services">
+                <div class="category-header">
+                    <i data-lucide="code"></i>
+                    <h2>IT & Frontend Services</h2>
+                </div>
+                <div class="service-grid">
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="layout"></i></div>
+                        <h3>Web Development</h3>
+                        <p>Modern, responsive websites built with the latest technologies.</p>
+                        <a href="booking.html?service=webdev" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="palette"></i></div>
+                        <h3>UI/UX Design</h3>
+                        <p>User-centric design systems and wireframes for apps and websites.</p>
+                        <a href="booking.html?service=uiux" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="app-window"></i></div>
+                        <h3>React Apps</h3>
+                        <p>High-performance frontend applications using React framework.</p>
+                        <a href="booking.html?service=react" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Repair & Installation -->
+            <div class="category-section reveal" id="repair-services">
+                <div class="category-header">
+                    <i data-lucide="wrench"></i>
+                    <h2>Repair & Installation</h2>
+                </div>
+                <div class="service-grid">
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="smartphone"></i></div>
+                        <h3>Mobile & Laptop Repair</h3>
+                        <p>Hardware fixes, screen replacement, and speed optimization.</p>
+                        <a href="booking.html?service=repair" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="camera"></i></div>
+                        <h3>CCTV Installation</h3>
+                        <p>Complete security camera setup and monitoring configuration.</p>
+                        <a href="booking.html?service=cctv" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon-box"><i data-lucide="wifi"></i></div>
+                        <h3>WiFi & Network Setup</h3>
+                        <p>Router installation, range extension, and network troubleshooting.</p>
+                        <a href="booking.html?service=wifi" class="book-link">Book Service <i data-lucide="chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white; margin-bottom: 24px;">
+                        <i data-lucide="zap" style="color: var(--primary);"></i>
+                        Fix<span>ora.</span>
+                    </a>
+                    <p>Making everyday services simple, fast, and reliable for everyone across Pakistan.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="professionals.html">Professionals</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <p style="color: #94a3b8; font-size: 0.875rem;">support@fixora.com</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;">+92 300 1234567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fixora Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Simple search filtering
+        const searchInput = document.getElementById('serviceSearch');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            serviceCards.forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                const desc = card.querySelector('p').innerText.toLowerCase();
+                if (title.includes(term) || desc.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
