@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice | Fixora</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .invoice-container {
+            max-width: 800px;
+            margin: 140px auto 80px;
+            padding: 40px;
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .invoice-details div {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 32px;
+        }
+
+        .invoice-table th, .invoice-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .invoice-table th {
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+
+        .invoice-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .invoice-total {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .total-box {
+            background: var(--bg-alt);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            width: 300px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .total-row.final {
+            border-top: 2px solid var(--border-color);
+            padding-top: 12px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .invoice-terms {
+            background: rgba(99, 102, 241, 0.05);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary);
+        }
+
+        .invoice-terms h4 {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .invoice-terms ul {
+            list-style: disc;
+            margin-left: 20px;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .invoice-terms ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .print-btn {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .invoice-container, .invoice-container * {
+                visibility: visible;
+            }
+            .invoice-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border: none;
+            }
+            .print-btn, .header, .footer, .menu-backdrop {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .invoice-header, .invoice-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .invoice-header div:last-child {
+                text-align: left;
+            }
+            .invoice-table {
+                display: block;
+                overflow-x: auto;
+            }
+            .invoice-total {
+                justify-content: flex-start;
+            }
+            .total-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="home-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i data-lucide="zap" style="color: var(--primary);"></i>
+                Fix<span>ora.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="professionals.html" class="nav-link">Professionals</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><button class="btn btn-primary" onclick="window.print()">Print Invoice</button></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card invoice-container reveal tilt-card glow-border">
+            <!-- Invoice Header -->
+            <div class="invoice-header">
+                <div>
+                    <h1 style="font-size: 2rem; color: var(--dark); margin-bottom: 8px;">Booking Invoice</h1>
+                    <p style="color: var(--text-light);">Reference: #FIX-2026-892</p>
+                </div>
+                <div style="text-align: right;">
+                    <button class="btn btn-secondary print-btn" onclick="window.print()">
+                        <i data-lucide="printer"></i> Download / Print
+                    </button>
+                    <div style="margin-top: 16px;">
+                        <span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 6px 12px; border-radius: 20px; font-weight: 600;">
+                            <i data-lucide="check-circle" style="width: 14px; display: inline-block; margin-right: 4px; vertical-align: middle;"></i> Booking Confirmed
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details -->
+            <div class="invoice-details">
+                <div>
+                    <h4 style="color: var(--text-light); font-size: 0.875rem; text-transform: uppercase;">Billed To:</h4>
+                    <p style="font-weight: 600; font-size: 1.125rem;">DA Khan</p>
+                    <p style="color: var(--text-light);">dakhan@example.com</p>
+                    <p style="color: var(--text-light);">Lahore, Pakistan</p>
+                </div>
+                <div style="text-align: right;">
+                    <h4 style="color: var(--text-light); font-size: 0.875rem; text-transform: uppercase;">From:</h4>
+                    <p style="font-weight: 600; font-size: 1.125rem;">Fixora Services HQ</p>
+                    <p style="color: var(--text-light);">Plot 123, Block A, Commercial Area</p>
+                    <p style="color: var(--text-light);">Lahore, Pakistan</p>
+                    <p style="color: var(--text-light); margin-top: 8px;">Date: May 07, 2026</p>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th style="text-align: right;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 500;">Premium Deep Home Cleaning</td>
+                        <td style="color: var(--text-light);">Home Services</td>
+                        <td style="text-align: right; font-weight: 500;">Rs 4,500.00</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 500;">Same-Day Priority Booking Fee</td>
+                        <td style="color: var(--text-light);">Add-on</td>
+                        <td style="text-align: right; font-weight: 500;">Rs 500.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Total -->
+            <div class="invoice-total">
+                <div class="total-box">
+                    <div class="total-row">
+                        <span style="color: var(--text-light);">Subtotal</span>
+                        <span style="font-weight: 600;">Rs 5,000.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span style="color: var(--text-light);">Platform Fee (5%)</span>
+                        <span style="font-weight: 600;">Rs 250.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span style="color: var(--text-light);">Tax (16%)</span>
+                        <span style="font-weight: 600;">Rs 800.00</span>
+                    </div>
+                    <div class="total-row final">
+                        <span>Total Due</span>
+                        <span>Rs 6,050.00</span>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 16px;">Please pay the professional directly upon task completion.</p>
+                </div>
+            </div>
+
+            <!-- Terms -->
+            <div class="invoice-terms">
+                <h4><i data-lucide="file-text"></i> Terms & Conditions</h4>
+                <ul>
+                    <li><strong>Payment:</strong> Payment is due immediately upon the successful completion of the service. Fixora professionals accept cash, bank transfers, and digital wallets.</li>
+                    <li><strong>Cancellations & Rescheduling:</strong> You may cancel or reschedule your booking free of charge up to 4 hours before the scheduled time. Late cancellations may incur a nominal fee of Rs 500.</li>
+                    <li><strong>Liability & Damages:</strong> Fixora acts as a platform connecting users with trusted professionals. While we thoroughly vet our partners, Fixora is not directly liable for unforeseen damages during service execution, but we offer full dispute resolution support.</li>
+                    <li><strong>Satisfaction Guarantee:</strong> If you are completely unsatisfied with the service provided, please report it within 24 hours to claim a free re-visit or partial refund based on our Trust & Safety policy.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Daniyal Chaudhary.</p>
+                <div class="payment-icons">
+                    <i data-lucide="credit-card"></i>
+                    <i data-lucide="wallet"></i>
+                    <i data-lucide="shield-check"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script src="main.js"></script>
+</body>
+</html>

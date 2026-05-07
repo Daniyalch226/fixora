@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 5. Success Alerts (for simulated forms)
-    window.simulateFormSubmit = (e, message = "Form submitted successfully!") => {
+    window.simulateFormSubmit = (e, message = "Form submitted successfully!", redirectUrl = null) => {
         e.preventDefault();
         const btn = e.target.querySelector('button[type="submit"]');
         if (btn) {
@@ -121,10 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             setTimeout(() => {
-                alert(message);
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-                e.target.reset();
+                if (redirectUrl) {
+                    window.location.href = redirectUrl;
+                } else {
+                    alert(message);
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    e.target.reset();
+                }
             }, 1500);
         }
     };

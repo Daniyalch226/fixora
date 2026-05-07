@@ -156,10 +156,26 @@
                         <div class="contact-icon">
                             <i data-lucide="map-pin"></i>
                         </div>
-                        <div>
-                            <h3>Visit Us</h3>
-                            <p>Plot 123, Block A, Commercial Area,</p>
-                            <p>Lahore, Pakistan</p>
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 15px;">Our Offices</h3>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <div>
+                                    <p style="font-weight: 600; color: var(--dark); margin-bottom: 2px; font-size: 0.95rem;">New York City (HQ)</p>
+                                    <p style="font-size: 0.85rem;">One World Trade Center, Suite 4500, NY</p>
+                                </div>
+                                <div>
+                                    <p style="font-weight: 600; color: var(--dark); margin-bottom: 2px; font-size: 0.95rem;">Lahore, Pakistan</p>
+                                    <p style="font-size: 0.85rem;">Plot 123, Block A, Commercial Area</p>
+                                </div>
+                                <div>
+                                    <p style="font-weight: 600; color: var(--dark); margin-bottom: 2px; font-size: 0.95rem;">London, UK</p>
+                                    <p style="font-size: 0.85rem;">100 King's Cross Road, London</p>
+                                </div>
+                                <div>
+                                    <p style="font-weight: 600; color: var(--dark); margin-bottom: 2px; font-size: 0.95rem;">Sydney, Australia</p>
+                                    <p style="font-size: 0.85rem;">Level 12, 100 George Street, NSW</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -170,17 +186,56 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             <div class="form-group">
                                 <label class="form-label">First Name</label>
-                                <input type="text" class="form-control" placeholder="John" required>
+                                <input type="text" class="form-control" placeholder="DA" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control" placeholder="Doe" required>
+                                <input type="text" class="form-control" placeholder="Khan" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Email Address</label>
-                            <input type="email" class="form-control" placeholder="john@example.com" required>
+                            <input type="email" class="form-control" placeholder="dakhan@example.com" required>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label class="form-label">Country</label>
+                                <select class="form-control" required>
+                                    <option value="" disabled selected>Select country</option>
+                                    <option value="usa">United States</option>
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="pakistan">Pakistan</option>
+                                    <option value="australia">Australia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">City</label>
+                                <select class="form-control" required>
+                                    <option value="" disabled selected>Select city</option>
+                                    <optgroup label="United States">
+                                        <option value="nyc">New York City</option>
+                                        <option value="la">Los Angeles</option>
+                                        <option value="chicago">Chicago</option>
+                                    </optgroup>
+                                    <optgroup label="United Kingdom">
+                                        <option value="london">London</option>
+                                        <option value="manchester">Manchester</option>
+                                        <option value="birmingham">Birmingham</option>
+                                    </optgroup>
+                                    <optgroup label="Pakistan">
+                                        <option value="lahore">Lahore</option>
+                                        <option value="karachi">Karachi</option>
+                                        <option value="islamabad">Islamabad</option>
+                                    </optgroup>
+                                    <optgroup label="Australia">
+                                        <option value="sydney">Sydney</option>
+                                        <option value="melbourne">Melbourne</option>
+                                        <option value="brisbane">Brisbane</option>
+                                    </optgroup>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -208,14 +263,56 @@
                 </div>
             </div>
 
-            <!-- Visual Map Placeholder -->
-            <div class="map-placeholder reveal">
-                <div style="text-align: center; color: var(--text-light);">
-                    <i data-lucide="map" style="width: 48px; height: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
-                    <p style="font-weight: 600;">Interactive Map Placeholder</p>
-                    <p style="font-size: 0.875rem;">(Google Maps API would be integrated here)</p>
+            <!-- Interactive Map - All Office Locations -->
+            <div class="reveal" style="margin-top: 60px;">
+                <h3 style="text-align: center; margin-bottom: 8px;">Find Us <span class="text-gradient">Worldwide</span></h3>
+                <p style="text-align: center; color: var(--text-light); margin-bottom: 24px;">Click a location to view on the map</p>
+
+                <!-- Location Tabs -->
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+                    <button onclick="switchMap('lahore')" id="tab-lahore" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.875rem;">🇵🇰 Lahore, Pakistan</button>
+                    <button onclick="switchMap('nyc')" id="tab-nyc" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.875rem;">🇺🇸 New York City</button>
+                    <button onclick="switchMap('london')" id="tab-london" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.875rem;">🇬🇧 London, UK</button>
+                    <button onclick="switchMap('sydney')" id="tab-sydney" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.875rem;">🇦🇺 Sydney, Australia</button>
+                </div>
+
+                <!-- Map iframes -->
+                <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color);">
+                    <iframe id="map-lahore"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108861.85966373858!2d74.26915152332617!3d31.498877527622935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1715000000001"
+                        width="100%" height="450" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <iframe id="map-nyc"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.11808403697236!3d40.70582452510735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1715000000002"
+                        width="100%" height="450" style="border:0; display:none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <iframe id="map-london"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.4743508073!2d-0.24168116138180637!3d51.52894715438733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2s!4v1715000000003"
+                        width="100%" height="450" style="border:0; display:none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <iframe id="map-sydney"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212917.59337741988!2d150.74305820000002!3d-33.86785100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2s!4v1715000000004"
+                        width="100%" height="450" style="border:0; display:none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
+
+            <script>
+                function switchMap(location) {
+                    const maps = ['lahore', 'nyc', 'london', 'sydney'];
+                    maps.forEach(m => {
+                        document.getElementById('map-' + m).style.display = (m === location) ? 'block' : 'none';
+                        const tab = document.getElementById('tab-' + m);
+                        if (m === location) {
+                            tab.classList.remove('btn-secondary');
+                            tab.classList.add('btn-primary');
+                        } else {
+                            tab.classList.remove('btn-primary');
+                            tab.classList.add('btn-secondary');
+                        }
+                    });
+                }
+            </script>
         </div>
     </section>
 
@@ -246,6 +343,23 @@
                         <a href="#"><i data-lucide="instagram"></i></a>
                         <a href="#"><i data-lucide="linkedin"></i></a>
                     </div>
+                    <p style="color: #94a3b8; font-size: 0.75rem; margin-top: 24px; text-transform: uppercase; letter-spacing: 1px;">Download the App</p>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                        <a href="#" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 14px; border-radius: 10px; color: white; text-decoration: none;">
+                            <i data-lucide="apple" style="width: 22px; height: 22px;"></i>
+                            <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                                <span style="font-size: 0.5rem; opacity: 0.75;">Download on the</span>
+                                <span style="font-size: 0.8rem; font-weight: 700;">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 14px; border-radius: 10px; color: white; text-decoration: none;">
+                            <i data-lucide="play" style="width: 22px; height: 22px;"></i>
+                            <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                                <span style="font-size: 0.5rem; opacity: 0.75;">GET IT ON</span>
+                                <span style="font-size: 0.8rem; font-weight: 700;">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="footer-title">Company</h4>
@@ -274,12 +388,20 @@
                     <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;"><i data-lucide="phone" style="width: 14px; vertical-align: middle; margin-right: 5px;"></i> +92 304 4762204</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Daniyal Chaudhary.</p>
-                <div class="payment-icons">
-                    <i data-lucide="credit-card"></i>
-                    <i data-lucide="wallet"></i>
-                    <i data-lucide="shield-check"></i>
+            <div class="footer-bottom" style="flex-direction: column; gap: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 16px;">
+                    <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Daniyal Chaudhary.</p>
+                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                        <span style="color: #64748b; font-size: 0.75rem;">We Accept:</span>
+                        <div style="background:#fff; padding: 3px 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;"><span style="font-weight:900; font-style:italic; color:#1a1f71; font-size:0.8rem;">VISA</span></div>
+                        <div style="background:#fff; padding: 0 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;">
+                            <div style="width:16px; height:16px; background:#EB001B; border-radius:50%;"></div>
+                            <div style="width:16px; height:16px; background:#F79E1B; border-radius:50%; margin-left:-6px;"></div>
+                        </div>
+                        <div style="background:#2E77BC; padding: 3px 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;"><span style="font-weight:700; color:#fff; font-size:0.65rem;">AMEX</span></div>
+                        <div style="background:linear-gradient(135deg,#c8102e,#e83e5a); padding: 3px 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;"><span style="font-weight:700; color:#fff; font-size:0.65rem;">JazzCash</span></div>
+                        <div style="background:linear-gradient(135deg,#00a651,#00c261); padding: 3px 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;"><span style="font-weight:700; color:#fff; font-size:0.65rem;">EasyPaisa</span></div>
+                    </div>
                 </div>
             </div>
         </div>

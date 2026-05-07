@@ -104,11 +104,11 @@
             <div class="booking-grid">
                 <!-- Booking Form -->
                 <div class="card booking-card">
-                    <form id="bookingForm" onsubmit="simulateFormSubmit(event, 'Your booking request has been received! Our team will contact you shortly.')">
+                    <form id="bookingForm" onsubmit="simulateFormSubmit(event, 'Your booking request has been received! Generating invoice...', 'invoice.html')">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             <div class="form-group">
                                 <label class="form-label">Full Name</label>
-                                <input type="text" class="form-control" placeholder="John Doe" required>
+                                <input type="text" class="form-control" placeholder="DA Khan" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Phone Number</label>
@@ -116,19 +116,43 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label">City in Pakistan</label>
-                            <select class="form-control" required>
-                                <option value="" disabled selected>Select your city</option>
-                                <option value="karachi">Karachi</option>
-                                <option value="lahore">Lahore</option>
-                                <option value="islamabad">Islamabad</option>
-                                <option value="faisalabad">Faisalabad</option>
-                                <option value="rawalpindi">Rawalpindi</option>
-                                <option value="peshawar">Peshawar</option>
-                                <option value="multan">Multan</option>
-                                <option value="sialkot">Sialkot</option>
-                            </select>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label class="form-label">Country</label>
+                                <select class="form-control" required>
+                                    <option value="" disabled selected>Select country</option>
+                                    <option value="usa">United States</option>
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="pakistan">Pakistan</option>
+                                    <option value="australia">Australia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">City</label>
+                                <select class="form-control" required>
+                                    <option value="" disabled selected>Select city</option>
+                                    <optgroup label="United States">
+                                        <option value="nyc">New York City</option>
+                                        <option value="la">Los Angeles</option>
+                                        <option value="chicago">Chicago</option>
+                                    </optgroup>
+                                    <optgroup label="United Kingdom">
+                                        <option value="london">London</option>
+                                        <option value="manchester">Manchester</option>
+                                        <option value="birmingham">Birmingham</option>
+                                    </optgroup>
+                                    <optgroup label="Pakistan">
+                                        <option value="lahore">Lahore</option>
+                                        <option value="karachi">Karachi</option>
+                                        <option value="islamabad">Islamabad</option>
+                                    </optgroup>
+                                    <optgroup label="Australia">
+                                        <option value="sydney">Sydney</option>
+                                        <option value="melbourne">Melbourne</option>
+                                        <option value="brisbane">Brisbane</option>
+                                    </optgroup>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -227,6 +251,23 @@
                         <a href="#"><i data-lucide="instagram"></i></a>
                         <a href="#"><i data-lucide="linkedin"></i></a>
                     </div>
+                    <p style="color: #94a3b8; font-size: 0.75rem; margin-top: 24px; text-transform: uppercase; letter-spacing: 1px;">Download the App</p>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                        <a href="#" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 14px; border-radius: 10px; color: white; text-decoration: none;">
+                            <i data-lucide="apple" style="width: 22px; height: 22px;"></i>
+                            <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                                <span style="font-size: 0.5rem; opacity: 0.75;">Download on the</span>
+                                <span style="font-size: 0.8rem; font-weight: 700;">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 14px; border-radius: 10px; color: white; text-decoration: none;">
+                            <i data-lucide="play" style="width: 22px; height: 22px;"></i>
+                            <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                                <span style="font-size: 0.5rem; opacity: 0.75;">GET IT ON</span>
+                                <span style="font-size: 0.8rem; font-weight: 700;">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="footer-title">Company</h4>
@@ -255,12 +296,20 @@
                     <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;"><i data-lucide="phone" style="width: 14px; vertical-align: middle; margin-right: 5px;"></i> +92 304 4762204</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Daniyal Chaudhary.</p>
-                <div class="payment-icons">
-                    <i data-lucide="credit-card"></i>
-                    <i data-lucide="wallet"></i>
-                    <i data-lucide="shield-check"></i>
+            <div class="footer-bottom" style="flex-direction: column; gap: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 16px;">
+                    <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Daniyal Chaudhary.</p>
+                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                        <span style="color: #64748b; font-size: 0.75rem;">We Accept:</span>
+                        <div style="background:#fff; padding: 3px 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;"><span style="font-weight:900; font-style:italic; color:#1a1f71; font-size:0.8rem;">VISA</span></div>
+                        <div style="background:#fff; padding: 0 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;">
+                            <div style="width:16px; height:16px; background:#EB001B; border-radius:50%;"></div>
+                            <div style="width:16px; height:16px; background:#F79E1B; border-radius:50%; margin-left:-6px;"></div>
+                        </div>
+                        <div style="background:#2E77BC; padding: 3px 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;"><span style="font-weight:700; color:#fff; font-size:0.65rem;">AMEX</span></div>
+                        <div style="background:linear-gradient(135deg,#c8102e,#e83e5a); padding: 3px 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;"><span style="font-weight:700; color:#fff; font-size:0.65rem;">JazzCash</span></div>
+                        <div style="background:linear-gradient(135deg,#00a651,#00c261); padding: 3px 8px; border-radius: 5px; height: 26px; display:inline-flex; align-items:center;"><span style="font-weight:700; color:#fff; font-size:0.65rem;">EasyPaisa</span></div>
+                    </div>
                 </div>
             </div>
         </div>
