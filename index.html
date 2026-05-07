@@ -22,6 +22,8 @@
     <style>
         /* Homepage Specific Styles */
         .stats {
+            position: relative;
+            overflow: hidden;
             background: var(--bg-alt);
             padding: 60px 0;
             margin-bottom: 80px;
@@ -93,73 +95,143 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+    <section class="hero" style="padding: 160px 0 100px; position: relative; overflow: hidden; background: var(--bg-alt);">
+        <!-- Professional Background Elements -->
+        <div style="position: absolute; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 60%); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 60%); border-radius: 50%;"></div>
 
-        <div class="container animate-fade-up">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <span class="section-subtitle">The Future of Services</span>
-                    <h1>Fast, Reliable, and <span class="text-gradient">Smart</span> Service Booking</h1>
-                    <p>Experience the ultimate platform connecting you with top-tier professionals for doorstep and
-                        digital services. Quality guaranteed, every single time.</p>
-
-                    <div class="glass-search-form">
-                        <i data-lucide="search" style="color: var(--text-light);"></i>
-                        <input type="text" class="glass-search-input"
-                            placeholder="What service do you need? (e.g. Electrician)">
-                        <button class="glass-search-btn">Search Pro</button>
+        <div class="container animate-fade-up" style="position: relative; z-index: 10;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                
+                <!-- Left Content -->
+                <div style="text-align: left;">
+                    <div style="display: inline-flex; align-items: center; gap: 8px; background: white; padding: 6px 16px; border-radius: 100px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 24px; border: 1px solid rgba(99,102,241,0.1);">
+                        <span style="display: block; width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981;"></span>
+                        <span style="font-size: 0.875rem; font-weight: 600; color: var(--dark);">Pakistan's #1 Service Platform</span>
                     </div>
 
-                    <div class="live-activity-badge animate-fade-up">
-                        <div class="live-indicator">
-                            <span class="pulse"></span>
-                            Live
+                    <h1 style="font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px; color: var(--dark);">
+                        Professional Services,<br>
+                        <span class="text-gradient">Done Right.</span>
+                    </h1>
+                    
+                    <p style="font-size: 1.15rem; color: var(--text-light); margin-bottom: 40px; max-width: 500px; line-height: 1.6;">
+                        Connect instantly with verified, top-rated experts for home repairs, deep cleaning, IT solutions, and more.
+                    </p>
+                    
+                    <!-- Search Box -->
+                    <div id="open-cmd-menu" style="background: white; padding: 8px; border-radius: 100px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; align-items: center; border: 1px solid rgba(0,0,0,0.05); cursor: pointer; transition: all 0.3s ease; max-width: 550px;">
+                        <div style="padding: 0 15px; color: var(--text-light);">
+                            <i data-lucide="search"></i>
                         </div>
-                        <p id="live-text">Expert available in Lahore right now</p>
+                        <div style="flex: 1; color: var(--text-light); font-size: 1rem; padding: 12px 0;">
+                            What do you need help with?
+                        </div>
+                        <button class="btn btn-primary" style="border-radius: 100px; padding: 12px 24px; font-size: 1rem;">
+                            Find Expert
+                        </button>
+                    </div>
+
+                    <!-- Stats Row -->
+                    <div style="margin-top: 40px; display: flex; gap: 30px; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center; color: #10b981;">
+                                <i data-lucide="shield-check" style="width: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--dark);">100% Verified</h4>
+                                <p style="margin: 0; font-size: 0.8rem; color: var(--text-light);">Background checked</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(245, 158, 11, 0.1); display: flex; align-items: center; justify-content: center; color: #f59e0b;">
+                                <i data-lucide="star" style="width: 20px;"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--dark);">4.9/5 Rating</h4>
+                                <p style="margin: 0; font-size: 0.8rem; color: var(--text-light);">From happy users</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hero-visual reveal reveal-delay-2 active">
-                    <div class="hero-image-wrapper">
-                        <!-- Crossfading Slider Images -->
-                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
-                            alt="Professional Worker" class="hero-slide active">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
-                            alt="Cleaning Service" class="hero-slide">
-                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
-                            alt="Electrician" class="hero-slide">
+                <!-- Right Content (Visuals) -->
+                <div style="position: relative; height: 100%; display: flex; align-items: center; justify-content: center;" class="reveal reveal-delay-2 active">
+                    <div style="position: relative; width: 100%; max-width: 450px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.5);">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="Professional Worker" style="width: 100%; height: auto; display: block; aspect-ratio: 4/5; object-fit: cover;">
                         
-                        <!-- Mobile Only Background Video -->
-                        <div class="mobile-video-container">
-                            <video autoplay muted loop playsinline class="hero-bg-video">
-                                <source src="https://assets.mixkit.co/videos/preview/mixkit-working-at-home-with-a-computer-4831-large.mp4" type="video/mp4">
-                            </video>
+                        <!-- Premium overlay gradient -->
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);"></div>
+                        
+                        <div style="position: absolute; bottom: 30px; left: 30px; color: white;">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 5px; color: white;">Expert Repair</h3>
+                            <p style="opacity: 0.9; margin: 0; display: flex; align-items: center; gap: 5px;">
+                                <i data-lucide="check-circle" style="width: 16px;"></i> Job Completed
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Floating Cards -->
-                    <div class="floating-card fc-top">
-                        <div class="fc-icon"><i data-lucide="shield-check"></i></div>
-                        <div class="fc-content">
-                            <h4>100% Verified</h4>
-                            <p>Expert Professionals</p>
+                    <!-- Floating Card 1 -->
+                    <div style="position: absolute; top: 40px; left: -30px; background: white; padding: 15px 20px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 12px; animation: float 6s ease-in-out infinite;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                            <i data-lucide="zap" style="width: 20px;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 0.9rem; color: var(--dark);">Fast Booking</h4>
+                            <p style="margin: 0; font-size: 0.8rem; color: var(--text-light);">Under 2 mins</p>
                         </div>
                     </div>
 
-                    <div class="floating-card fc-bottom">
-                        <div class="fc-icon" style="background: linear-gradient(135deg, #f59e0b, #fb923c);"><i
-                                data-lucide="zap"></i></div>
-                        <div class="fc-content">
-                            <h4>Fast Booking</h4>
-                            <p>Under 2 Minutes</p>
+                    <!-- Floating Card 2 -->
+                    <div style="position: absolute; bottom: 60px; right: -40px; background: white; padding: 15px 20px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.08); animation: float 6s ease-in-out infinite 3s;">
+                        <h4 style="margin: 0 0 5px 0; font-size: 0.9rem; color: var(--dark);">Top Professionals</h4>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div style="display: flex;">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid white; margin-left: -10px; z-index: 3;">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid white; margin-left: -10px; z-index: 2;">
+                                <div style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid white; margin-left: -10px; z-index: 1; background: var(--gradient); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.6rem; font-weight: bold;">+2k</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
+        
+        <style>
+            /* Mobile Responsive Enhancements (Bootstrap-equivalent logic) */
+            @media (max-width: 991px) {
+                .hero { padding: 120px 0 60px !important; }
+                .hero > .container > div {
+                    grid-template-columns: 1fr !important;
+                    gap: 40px !important;
+                    text-align: center;
+                }
+                .hero h1 { font-size: clamp(2rem, 8vw, 3rem) !important; margin-top: 10px; }
+                .hero p { margin-left: auto; margin-right: auto; font-size: 1rem !important; }
+                
+                /* Center align search box on mobile */
+                #open-cmd-menu { margin: 0 auto !important; width: 100%; flex-direction: column; gap: 10px; padding: 10px !important; border-radius: 20px !important; }
+                #open-cmd-menu .btn { width: 100%; border-radius: 12px !important; }
+                #open-cmd-menu div { text-align: center !important; padding: 5px 0 !important; }
+                
+                /* Center stats row */
+                .hero > .container > div > div:first-child > div:last-child { justify-content: center !important; flex-wrap: wrap; }
+                
+                /* Right image content mobile fixes */
+                .reveal.active > div { max-width: 300px !important; margin: 0 auto; }
+                
+                /* Adjust or hide floating cards to prevent horizontal scroll */
+                .hero .floating-card-left { display: none !important; }
+                .hero .floating-card-right { 
+                    bottom: -20px !important; right: 0 !important; transform: scale(0.85); transform-origin: bottom right; 
+                }
+            }
+            @media (max-width: 480px) {
+                .hero h1 { font-size: 2.2rem !important; }
+                .hero-badge-pill { font-size: 0.75rem !important; }
+            }
+        </style>
     </section>
 
     <!-- Featured Categories -->
@@ -170,71 +242,168 @@
 
             <div class="categories-grid">
                 <!-- Row 1 -->
-                <div class="card category-card reveal">
-                    <div class="category-icon">
-                        <i data-lucide="home"></i>
+                <div class="card category-card tilt-card glow-border reveal">
+                    <div class="tilt-card-content category-content-wrapper">
+                        <div class="category-main">
+                            <div class="category-icon">
+                                <i data-lucide="home"></i>
+                            </div>
+                            <h3>Home Services</h3>
+                            <p>Cleaning, Painting, Plumbing, and more at your doorstep.</p>
+                        </div>
+                        <div class="category-subservices">
+                            <ul>
+                                <li><i data-lucide="check-circle-2"></i> Deep Home Cleaning</li>
+                                <li><i data-lucide="check-circle-2"></i> Plumbing Repair</li>
+                                <li><i data-lucide="check-circle-2"></i> Electrical Work</li>
+                                <li><i data-lucide="check-circle-2"></i> AC Servicing</li>
+                            </ul>
+                            <a href="services.html" class="btn btn-outline btn-small">Book a Pro</a>
+                        </div>
                     </div>
-                    <h3>Home Services</h3>
-                    <p>Cleaning, Painting, Plumbing, and more at your doorstep.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
-                        All
-                        <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
                 </div>
 
-                <div class="card category-card reveal reveal-delay-1">
-                    <div class="category-icon">
-                        <i data-lucide="monitor"></i>
+                <div class="card category-card tilt-card glow-border reveal reveal-delay-1">
+                    <div class="tilt-card-content category-content-wrapper">
+                        <div class="category-main">
+                            <div class="category-icon">
+                                <i data-lucide="monitor"></i>
+                            </div>
+                            <h3>IT & Digital</h3>
+                            <p>Web Development, UI/UX Design, and Mobile Apps.</p>
+                        </div>
+                        <div class="category-subservices">
+                            <ul>
+                                <li><i data-lucide="check-circle-2"></i> Custom Web Dev</li>
+                                <li><i data-lucide="check-circle-2"></i> Mobile App Dev</li>
+                                <li><i data-lucide="check-circle-2"></i> UI/UX Design</li>
+                                <li><i data-lucide="check-circle-2"></i> IT Support</li>
+                            </ul>
+                            <a href="services.html" class="btn btn-outline btn-small">Book a Pro</a>
+                        </div>
                     </div>
-                    <h3>IT & Digital</h3>
-                    <p>Web Development, UI/UX Design, and Mobile Apps.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
-                        All
-                        <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
                 </div>
 
-                <div class="card category-card reveal reveal-delay-2">
-                    <div class="category-icon">
-                        <i data-lucide="settings"></i>
+                <div class="card category-card tilt-card glow-border reveal reveal-delay-2">
+                    <div class="tilt-card-content category-content-wrapper">
+                        <div class="category-main">
+                            <div class="category-icon">
+                                <i data-lucide="settings"></i>
+                            </div>
+                            <h3>Repair Services</h3>
+                            <p>AC Repair, Appliances, Mobile & Laptop fixing.</p>
+                        </div>
+                        <div class="category-subservices">
+                            <ul>
+                                <li><i data-lucide="check-circle-2"></i> Refrigerator Repair</li>
+                                <li><i data-lucide="check-circle-2"></i> Washing Machine</li>
+                                <li><i data-lucide="check-circle-2"></i> Mobile/Laptop Repair</li>
+                                <li><i data-lucide="check-circle-2"></i> Geyser Repair</li>
+                            </ul>
+                            <a href="services.html" class="btn btn-outline btn-small">Book a Pro</a>
+                        </div>
                     </div>
-                    <h3>Repair Services</h3>
-                    <p>AC Repair, Appliances, Mobile & Laptop fixing.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
-                        All
-                        <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
                 </div>
 
                 <!-- Row 2 -->
-                <div class="card category-card reveal">
-                    <div class="category-icon">
-                        <i data-lucide="heart"></i>
+                <div class="card category-card tilt-card glow-border reveal">
+                    <div class="tilt-card-content category-content-wrapper">
+                        <div class="category-main">
+                            <div class="category-icon">
+                                <i data-lucide="heart"></i>
+                            </div>
+                            <h3>Health & Wellness</h3>
+                            <p>Massage sessions, Yoga trainers, and Physiotherapy at home.</p>
+                        </div>
+                        <div class="category-subservices">
+                            <ul>
+                                <li><i data-lucide="check-circle-2"></i> Physiotherapy</li>
+                                <li><i data-lucide="check-circle-2"></i> Home Nursing</li>
+                                <li><i data-lucide="check-circle-2"></i> Yoga Training</li>
+                                <li><i data-lucide="check-circle-2"></i> Massage Therapy</li>
+                            </ul>
+                            <a href="services.html" class="btn btn-outline btn-small">Book a Pro</a>
+                        </div>
                     </div>
-                    <h3>Health & Wellness</h3>
-                    <p>Massage sessions, Yoga trainers, and Physiotherapy at home.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
-                        All
-                        <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
                 </div>
 
-                <div class="card category-card reveal reveal-delay-1">
-                    <div class="category-icon">
-                        <i data-lucide="truck"></i>
+                <div class="card category-card tilt-card glow-border reveal reveal-delay-1">
+                    <div class="tilt-card-content category-content-wrapper">
+                        <div class="category-main">
+                            <div class="category-icon">
+                                <i data-lucide="truck"></i>
+                            </div>
+                            <h3>Moving & Packing</h3>
+                            <p>Hassle-free relocation and packing services for your home or office.</p>
+                        </div>
+                        <div class="category-subservices">
+                            <ul>
+                                <li><i data-lucide="check-circle-2"></i> Home Relocation</li>
+                                <li><i data-lucide="check-circle-2"></i> Office Relocation</li>
+                                <li><i data-lucide="check-circle-2"></i> Packing Services</li>
+                                <li><i data-lucide="check-circle-2"></i> Furniture Assembly</li>
+                            </ul>
+                            <a href="services.html" class="btn btn-outline btn-small">Book a Pro</a>
+                        </div>
                     </div>
-                    <h3>Moving & Packing</h3>
-                    <p>Hassle-free relocation and packing services for your home or office.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
-                        All
-                        <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
                 </div>
 
-                <div class="card category-card reveal reveal-delay-2">
-                    <div class="category-icon">
-                        <i data-lucide="calendar"></i>
+                <div class="card category-card tilt-card glow-border reveal reveal-delay-2">
+                    <div class="tilt-card-content category-content-wrapper">
+                        <div class="category-main">
+                            <div class="category-icon">
+                                <i data-lucide="calendar"></i>
+                            </div>
+                            <h3>Event Planning</h3>
+                            <p>Memorable photography, catering, and venue decoration services.</p>
+                        </div>
+                        <div class="category-subservices">
+                            <ul>
+                                <li><i data-lucide="check-circle-2"></i> Event Photography</li>
+                                <li><i data-lucide="check-circle-2"></i> Catering Services</li>
+                                <li><i data-lucide="check-circle-2"></i> Venue Decoration</li>
+                                <li><i data-lucide="check-circle-2"></i> Event Management</li>
+                            </ul>
+                            <a href="services.html" class="btn btn-outline btn-small">Book a Pro</a>
+                        </div>
                     </div>
-                    <h3>Event Planning</h3>
-                    <p>Memorable photography, catering, and venue decoration services.</p>
-                    <a href="services.html" class="text-gradient" style="margin-top: 20px; font-weight: 600;">View
-                        All
-                        <i data-lucide="chevron-right" style="width: 16px; vertical-align: middle;"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" style="background: var(--white); border-top: 1px solid #f1f5f9;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-subtitle">Simple Process</span>
+                <h2 class="section-title">How Fixora Works</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content tilt-card">
+                        <div class="tilt-card-content">
+                            <h3 style="color: var(--primary); margin-bottom: 10px; font-size: 1.5rem;">1. Search & Select</h3>
+                            <p style="color: var(--text-light);">Find the perfect service or professional for your needs using our smart search functionality.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal reveal-delay-1">
+                    <div class="timeline-content tilt-card">
+                        <div class="tilt-card-content">
+                            <h3 style="color: var(--secondary); margin-bottom: 10px; font-size: 1.5rem;">2. Book Instantly</h3>
+                            <p style="color: var(--text-light);">Choose a convenient time slot and confirm your booking securely in just a few clicks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal reveal-delay-2">
+                    <div class="timeline-content tilt-card">
+                        <div class="tilt-card-content">
+                            <h3 style="color: var(--accent); margin-bottom: 10px; font-size: 1.5rem;">3. Job Done perfectly</h3>
+                            <p style="color: var(--text-light);">Our verified professional arrives on time and completes the job to your absolute satisfaction.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -337,6 +506,42 @@
                         alt="Professional Repair Worker" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Founder's Story Section -->
+    <section class="founder-story">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; background: white; padding: 60px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid rgba(99,102,241,0.1);" class="reveal">
+                <i data-lucide="quote" style="width: 40px; height: 40px; color: var(--primary); margin-bottom: 20px; opacity: 0.5;"></i>
+                <h2 class="section-title" style="margin-bottom: 30px;">The Fixora <span class="text-gradient">Vision</span></h2>
+                
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text); margin-bottom: 20px; font-style: italic;">
+                    "I started Fixora with a simple vision: to bridge the gap between skilled professionals and people who need them, creating a seamless, trustworthy platform in Pakistan. The journey wasn't easy. It required relentless dedication, countless sleepless nights, and an unwavering belief in the power of technology to change lives."
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text); margin-bottom: 40px; font-style: italic;">
+                    "Today, Fixora stands as a testament to that vision. True success doesn't come overnight; it is built on a foundation of solving real-world problems and prioritizing user experience above all else. We are just getting started."
+                </p>
+                
+                <div class="founder-signature" style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 30px; display: inline-block;">
+                    <h4 style="font-size: 1.4rem; color: var(--dark); margin-bottom: 5px;">Daniyal Chaudhary</h4>
+                    <p style="color: var(--primary); font-weight: 600; font-size: 1rem; margin: 0;">Founder & CEO, Fixora</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glowing CTA -->
+    <section class="glowing-cta reveal">
+        <div class="blob blob-1" style="background: linear-gradient(135deg, #f43f5e, #8b5cf6);"></div>
+        <div class="blob blob-3" style="bottom: -50px; left: -50px;"></div>
+        <div class="container" style="position: relative; z-index: 10;">
+            <h2 style="font-size: 3.5rem; margin-bottom: 20px;">Ready to Experience Premium?</h2>
+            <p style="font-size: 1.25rem; color: #cbd5e1; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Join thousands of satisfied customers who have transformed their service booking experience.</p>
+            <a href="booking.html" class="btn btn-primary glow-border" style="font-size: 1.1rem; padding: 16px 40px; border-radius: 100px;">
+                Book a Service Now
+                <i data-lucide="arrow-right"></i>
+            </a>
         </div>
     </section>
 
@@ -673,13 +878,24 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <div>
+                    <h3>Join the Fixora Community</h3>
+                    <p>Subscribe to our newsletter for exclusive offers, tips, and updates.</p>
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo" style="color: white; margin-bottom: 24px;">
-                        <i data-lucide="zap" style="color: var(--primary);"></i>
+                        <i data-lucide="zap" style="color: var(--secondary);"></i>
                         Fix<span>ora.</span>
                     </a>
-                    <p>Making everyday services simple, fast, and reliable for everyone across Pakistan.</p>
+                    <p>Making everyday services simple, fast, and reliable for everyone across Pakistan. The premium service marketplace.</p>
                     <div style="display: flex; gap: 16px; margin-top: 24px;">
                         <a href="#"><i data-lucide="facebook"></i></a>
                         <a href="#"><i data-lucide="twitter"></i></a>
@@ -691,33 +907,102 @@
                     <h4 class="footer-title">Company</h4>
                     <ul class="footer-links">
                         <li><a href="#">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="professionals.html">Professionals</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="professionals.html">For Professionals</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="footer-title">Support</h4>
                     <ul class="footer-links">
                         <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Safety</a></li>
+                        <li><a href="#">Trust & Safety</a></li>
                         <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="footer-title">Contact</h4>
-                    <p style="color: #94a3b8; font-size: 0.875rem;">Plot 123, Block A, Commercial Area, Lahore, Pakistan
-                    </p>
-                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;">support@fixora.com</p>
-                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;">+92 304 4762204</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem;">Plot 123, Block A, Commercial Area<br>Lahore, Pakistan</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;"><i data-lucide="mail" style="width: 14px; vertical-align: middle; margin-right: 5px;"></i> support@fixora.com</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;"><i data-lucide="phone" style="width: 14px; vertical-align: middle; margin-right: 5px;"></i> +92 304 4762204</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Daniyal Chaudhary.</p>
+                <div class="payment-icons">
+                    <i data-lucide="credit-card"></i>
+                    <i data-lucide="wallet"></i>
+                    <i data-lucide="shield-check"></i>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Floating AI Button -->
+    <div class="ai-fab" id="ai-fab">
+        <div class="ai-fab-glow"></div>
+        <button class="ai-fab-btn">
+            <i data-lucide="message-circle"></i>
+        </button>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i data-lucide="sparkles"></i>
+                <span>Fixora AI Assistant</span>
+            </div>
+            <button id="close-chatbot"><i data-lucide="x"></i></button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chat-message bot">
+                <div class="chat-avatar"><i data-lucide="bot"></i></div>
+                <div class="chat-bubble">Hi there! 👋 I'm Fixora AI. How can I help you find the perfect professional today?</div>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Type your message..." id="chatbot-input">
+            <button class="chatbot-send" id="chatbot-send-btn"><i data-lucide="send"></i></button>
+        </div>
+    </div>
+
+    <!-- Command Menu Modal -->
+    <div class="cmd-menu-overlay" id="cmd-menu">
+        <div class="cmd-menu-container glass-card tilt-card">
+            <div class="cmd-menu-header">
+                <i data-lucide="search" style="color: var(--text-light);"></i>
+                <input type="text" placeholder="What do you need help with?" id="cmd-input" autocomplete="off">
+                <div class="cmd-badge">ESC</div>
+            </div>
+            <div class="cmd-menu-body">
+                <div class="cmd-section-title">Suggestions</div>
+                <div class="cmd-item">
+                    <i data-lucide="zap" style="color: #f59e0b;"></i>
+                    <span>Book Electrician</span>
+                    <div class="cmd-shortcut">↳</div>
+                </div>
+                <div class="cmd-item">
+                    <i data-lucide="droplet" style="color: #3b82f6;"></i>
+                    <span>Plumbing Repair</span>
+                    <div class="cmd-shortcut">↳</div>
+                </div>
+                <div class="cmd-item">
+                    <i data-lucide="home" style="color: #10b981;"></i>
+                    <span>Deep Home Cleaning</span>
+                    <div class="cmd-shortcut">↳</div>
+                </div>
+                <div class="cmd-section-title" style="margin-top: 15px;">AI Actions</div>
+                <div class="cmd-item ai-action">
+                    <i data-lucide="sparkles" style="color: #a855f7;"></i>
+                    <span class="text-gradient">Ask Fixora AI to find the best pro</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script>

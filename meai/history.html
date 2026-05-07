@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History – MEAI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>MEAI</span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="chat.html" class="nav-link">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>AI Assistant</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="history.html" class="nav-link active">
+                        <i class="fas fa-history"></i>
+                        <span>History</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Panel -->
+        <main class="main-panel">
+            <header class="top-bar">
+                <div class="welcome">
+                    <h2>Transaction <span class="text-gradient">History</span></h2>
+                    <p>Track every penny you spend</p>
+                </div>
+                <div class="actions">
+                    <button id="export-btn" class="btn-primary" style="padding: 0.8rem 1.5rem; border-radius: 12px; cursor: pointer;">
+                        <i class="fas fa-download"></i> Export Data
+                    </button>
+                    <button id="clear-btn" style="padding: 0.8rem 1.5rem; border-radius: 12px; cursor: pointer; border: 1px solid #ef4444; color: #ef4444; background: transparent; margin-left: 10px;">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+            </header>
+
+            <div class="card">
+                <div class="filter-bar" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                    <select id="filter-category" class="input-box" style="width: auto;">
+                        <option value="all">All Categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health</option>
+                        <option value="Rent">Rent</option>
+                    </select>
+                </div>
+                
+                <div id="history-list" class="recent-transactions">
+                    <!-- Complete list of transactions -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import Storage from './js/storage.js';
+
+        const historyList = document.getElementById('history-list');
+        const filterCat = document.getElementById('filter-category');
+        const clearBtn = document.getElementById('clear-btn');
+
+        const renderHistory = () => {
+            const expenses = Storage.getExpenses();
+            const filter = filterCat.value;
+            const settings = Storage.getSettings();
+
+            const filtered = filter === 'all' ? expenses : expenses.filter(e => e.category === filter);
+
+            historyList.innerHTML = '';
+            if (filtered.length === 0) {
+                historyList.innerHTML = '<p style="text-align: center; padding: 2rem; color: var(--text-muted-light);">No transactions found.</p>';
+                return;
+            }
+
+            filtered.forEach(exp => {
+                const item = document.createElement('div');
+                item.className = 'transaction-item';
+                item.innerHTML = `
+                    <div class="transaction-icon">
+                        <i class="${getIcon(exp.category)}"></i>
+                    </div>
+                    <div class="transaction-info">
+                        <h4>${exp.category}</h4>
+                        <p>${exp.date} • ${exp.note}</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="transaction-amount">${settings.currency} ${exp.amount}</div>
+                        <span style="font-size: 0.7rem; color: var(--text-muted-light);">${exp.mood}</span>
+                    </div>
+                `;
+                historyList.appendChild(item);
+            });
+        };
+
+        const getIcon = (cat) => {
+            const icons = { 'Food': 'fas fa-utensils', 'Transport': 'fas fa-car', 'Shopping': 'fas fa-shopping-bag', 'Health': 'fas fa-heartbeat', 'Rent': 'fas fa-home', 'Travel': 'fas fa-plane', 'Education': 'fas fa-book', 'Others': 'fas fa-ellipsis-h' };
+            return icons[cat] || icons['Others'];
+        };
+
+        filterCat.addEventListener('change', renderHistory);
+        clearBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete all transaction history?')) {
+                Storage.clearData();
+                renderHistory();
+            }
+        });
+
+        renderHistory();
+    </script>
+</body>
+</html>

@@ -402,29 +402,131 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-newsletter">
+                <div>
+                    <h3>Join the Fixora Community</h3>
+                    <p>Subscribe to our newsletter for exclusive offers, tips, and updates.</p>
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo" style="color: white; margin-bottom: 24px;">
-                        <i data-lucide="zap" style="color: var(--primary);"></i>
+                        <i data-lucide="zap" style="color: var(--secondary);"></i>
                         Fix<span>ora.</span>
                     </a>
-                    <p>Verified Professionals. Guaranteed Satisfaction.</p>
+                    <p>Making everyday services simple, fast, and reliable for everyone across Pakistan. The premium service marketplace.</p>
+                    <div style="display: flex; gap: 16px; margin-top: 24px;">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="linkedin"></i></a>
+                    </div>
                 </div>
                 <div>
-                    <h4 class="footer-title">Navigation</h4>
+                    <h4 class="footer-title">Company</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="booking.html">Book Service</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="professionals.html">For Professionals</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Careers</a></li>
                     </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Trust & Safety</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <p style="color: #94a3b8; font-size: 0.875rem;">Plot 123, Block A, Commercial Area<br>Lahore, Pakistan</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;"><i data-lucide="mail" style="width: 14px; vertical-align: middle; margin-right: 5px;"></i> support@fixora.com</p>
+                    <p style="color: #94a3b8; font-size: 0.875rem; margin-top: 12px;"><i data-lucide="phone" style="width: 14px; vertical-align: middle; margin-right: 5px;"></i> +92 304 4762204</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Fixora Professionals. Reliable & Verified.</p>
+                <p>&copy; 2026 Fixora Services. All rights reserved. Designed for Daniyal Chaudhary.</p>
+                <div class="payment-icons">
+                    <i data-lucide="credit-card"></i>
+                    <i data-lucide="wallet"></i>
+                    <i data-lucide="shield-check"></i>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Floating AI Button -->
+    <div class="ai-fab" id="ai-fab">
+        <div class="ai-fab-glow"></div>
+        <button class="ai-fab-btn">
+            <i data-lucide="message-circle"></i>
+        </button>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i data-lucide="sparkles"></i>
+                <span>Fixora AI Assistant</span>
+            </div>
+            <button id="close-chatbot"><i data-lucide="x"></i></button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chat-message bot">
+                <div class="chat-avatar"><i data-lucide="bot"></i></div>
+                <div class="chat-bubble">Hi there! 👋 I'm Fixora AI. How can I help you find the perfect professional today?</div>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Type your message..." id="chatbot-input">
+            <button class="chatbot-send" id="chatbot-send-btn"><i data-lucide="send"></i></button>
+        </div>
+    </div>
+
+    <!-- Command Menu Modal -->
+    <div class="cmd-menu-overlay" id="cmd-menu">
+        <div class="cmd-menu-container glass-card tilt-card">
+            <div class="cmd-menu-header">
+                <i data-lucide="search" style="color: var(--text-light);"></i>
+                <input type="text" placeholder="What do you need help with?" id="cmd-input" autocomplete="off">
+                <div class="cmd-badge">ESC</div>
+            </div>
+            <div class="cmd-menu-body">
+                <div class="cmd-section-title">Suggestions</div>
+                <div class="cmd-item">
+                    <i data-lucide="zap" style="color: #f59e0b;"></i>
+                    <span>Book Electrician</span>
+                    <div class="cmd-shortcut">↳</div>
+                </div>
+                <div class="cmd-item">
+                    <i data-lucide="droplet" style="color: #3b82f6;"></i>
+                    <span>Plumbing Repair</span>
+                    <div class="cmd-shortcut">↳</div>
+                </div>
+                <div class="cmd-item">
+                    <i data-lucide="home" style="color: #10b981;"></i>
+                    <span>Deep Home Cleaning</span>
+                    <div class="cmd-shortcut">↳</div>
+                </div>
+                <div class="cmd-section-title" style="margin-top: 15px;">AI Actions</div>
+                <div class="cmd-item ai-action">
+                    <i data-lucide="sparkles" style="color: #a855f7;"></i>
+                    <span class="text-gradient">Ask Fixora AI to find the best pro</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>lucide.createIcons();</script>
     <script src="main.js"></script>
