@@ -214,37 +214,160 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Handle sending a message in the chatbot
-    const sendMessage = () => {
-        if (!chatbotInput || !chatbotInput.value.trim() || !chatbotBody) return;
-        
-        const userText = chatbotInput.value.trim();
-        chatbotInput.value = '';
-        
-        // Add user message
+    const fixoraKB = [
+        {
+            keywords: ['book', 'booking', 'how to book', 'schedule', 'appointment', 'reserve'],
+            reply: `📅 <strong>Booking is super easy!</strong><br><br>
+1. Go to our <a href="booking.html" style="color:#6366f1;font-weight:600;">Book Now</a> page<br>
+2. Fill in your name, service, location & date<br>
+3. Hit "Confirm Booking" — done! ✅<br><br>
+You'll get a confirmation invoice instantly. Need help choosing a service?`
+        },
+        {
+            keywords: ['service', 'services', 'offer', 'what do you do', 'available'],
+            reply: `🔧 <strong>Fixora offers a wide range of services:</strong><br><br>
+🏠 <strong>Home Services:</strong> Cleaning, Painting, Plumbing, Electrical<br>
+💻 <strong>IT & Digital:</strong> Web Dev, UI/UX Design, React Apps<br>
+🔌 <strong>Installation:</strong> CCTV, WiFi Setup, AC Fitting<br>
+📚 <strong>Tutoring:</strong> Math, Science, & more<br><br>
+Browse all on our <a href="services.html" style="color:#6366f1;font-weight:600;">Services page</a>!`
+        },
+        {
+            keywords: ['price', 'cost', 'how much', 'fee', 'charge', 'rate', 'pricing'],
+            reply: `💰 <strong>Fixora Pricing:</strong><br><br>
+Pricing varies by service type and professional. Here's a rough guide:<br>
+• Home Cleaning: <strong>Rs 2,500 – 5,000</strong><br>
+• Plumbing: <strong>Rs 1,000 – 3,000</strong><br>
+• Web Development: <strong>Rs 15,000+</strong><br>
+• Electrical: <strong>Rs 500 – 2,500</strong><br><br>
+💡 All prices are shown <strong>before you confirm</strong> — no hidden fees!`
+        },
+        {
+            keywords: ['verified', 'safe', 'trust', 'background', 'check', 'legitimate', 'professional'],
+            reply: `✅ <strong>Yes! All Fixora professionals are:</strong><br><br>
+🔍 Background-checked & ID-verified<br>
+⭐ Rated by real customers<br>
+🛡️ Covered by our Satisfaction Guarantee<br>
+📋 Skill-tested in their category<br><br>
+If you're ever unhappy, report within 24 hrs for a <strong>free re-visit or refund</strong>!`
+        },
+        {
+            keywords: ['support', 'contact', 'help', 'phone', 'email', 'customer service', 'complaint'],
+            reply: `📞 <strong>We're here for you 24/7!</strong><br><br>
+📧 Email: <strong>support@fixora.com</strong><br>
+📱 Phone: <strong>+92 304 4762204</strong><br>
+💬 Live Chat: You're already using it!<br><br>
+Or visit our <a href="contact.html" style="color:#6366f1;font-weight:600;">Contact Page</a> to send a message directly.`
+        },
+        {
+            keywords: ['office', 'offices', 'location', 'address', 'where', 'headquarter', 'hq', 'nyc', 'uk', 'pakistan', 'australia'],
+            reply: `🌍 <strong>Fixora Global Offices:</strong><br><br>
+🇺🇸 <strong>New York (HQ):</strong> One World Trade Center, Suite 4500<br>
+🇵🇰 <strong>Lahore, Pakistan:</strong> Plot 123, Block A, Commercial Area<br>
+🇬🇧 <strong>London, UK:</strong> 100 King's Cross Road<br>
+🇦🇺 <strong>Sydney, Australia:</strong> Level 12, 100 George Street<br><br>
+See interactive maps on our <a href="contact.html" style="color:#6366f1;font-weight:600;">Contact Page</a>!`
+        },
+        {
+            keywords: ['cancel', 'cancellation', 'reschedule', 'refund'],
+            reply: `🔄 <strong>Cancellation Policy:</strong><br><br>
+• Cancel <strong>4+ hours before</strong> your booking: <span style="color:#10b981">✅ Free</span><br>
+• Cancel less than 4 hours before: <span style="color:#f59e0b">⚠️ Rs 500 fee</span><br>
+• Unhappy with service? Report within 24hrs for a <strong>free re-visit!</strong><br><br>
+Need to reschedule? Just call us at <strong>+92 304 4762204</strong>.`
+        },
+        {
+            keywords: ['invoice', 'receipt', 'bill', 'payment proof'],
+            reply: `🧾 <strong>Getting your invoice:</strong><br><br>
+After confirming a booking, you'll be <strong>automatically redirected</strong> to a detailed invoice page with:<br>
+• Service breakdown<br>
+• Total cost + tax<br>
+• Terms & conditions<br><br>
+You can also <strong>print or download</strong> the invoice as a PDF!`
+        },
+        {
+            keywords: ['app', 'download', 'mobile', 'play store', 'apple', 'ios', 'android'],
+            reply: `📱 <strong>Fixora Mobile App:</strong><br><br>
+Our app is <strong>coming soon!</strong> 🚀<br><br>
+You can find the download buttons in the footer of every page. Be the first to know — subscribe to our newsletter for launch updates!`
+        },
+        {
+            keywords: ['hi', 'hello', 'hey', 'good morning', 'good evening', 'salaam', 'salam', 'assalam'],
+            reply: `👋 <strong>Hello there!</strong> Welcome to Fixora!<br><br>
+I'm your AI assistant, ready to help you with bookings, services, pricing & more. What can I help you with today? 😊`
+        },
+        {
+            keywords: ['thank', 'thanks', 'thankyou', 'great', 'awesome', 'perfect', 'helpful'],
+            reply: `😊 You're very welcome! That's what I'm here for.<br><br>Is there anything else I can help you with? You can also visit our <a href="booking.html" style="color:#6366f1;font-weight:600;">Book Now</a> page to get started!`
+        }
+    ];
+
+    function getBotReply(input) {
+        const lower = input.toLowerCase().trim();
+        for (const item of fixoraKB) {
+            if (item.keywords.some(kw => lower.includes(kw))) {
+                return item.reply;
+            }
+        }
+        return `🤔 I'm not sure about that specific question, but here's what I can help with:<br><br>
+📅 Booking a service · 🔧 Service categories · 💰 Pricing<br>
+✅ Professional verification · 📞 Support · 🌍 Office locations<br><br>
+Or contact us directly at <strong>support@fixora.com</strong> or <strong>+92 304 4762204</strong>!`;
+    }
+
+    const sendMessage = (inputText) => {
+        const text = inputText || (chatbotInput && chatbotInput.value.trim());
+        if (!text || !chatbotBody) return;
+        if (chatbotInput) chatbotInput.value = '';
+
+        // Hide quick replies after first message
+        const qr = document.getElementById('quick-replies');
+        if (qr) qr.style.display = 'none';
+
+        // User message
         const userMsg = document.createElement('div');
-        userMsg.classList.add('chat-message');
-        userMsg.style.justifyContent = 'flex-end';
-        userMsg.innerHTML = `<div class="chat-bubble" style="background: var(--primary); color: white; border-bottom-right-radius: 4px; border-bottom-left-radius: 16px;">${userText}</div>`;
+        userMsg.classList.add('chat-message', 'user');
+        userMsg.innerHTML = `<div class="chat-bubble">${text}</div>`;
         chatbotBody.appendChild(userMsg);
-        
-        // Scroll to bottom
         chatbotBody.scrollTop = chatbotBody.scrollHeight;
-        
-        // Simulate bot reply
+
+        // Typing indicator
+        const typingEl = document.createElement('div');
+        typingEl.classList.add('chat-message', 'bot');
+        typingEl.id = 'typing-indicator';
+        typingEl.innerHTML = `
+            <div class="chat-avatar"><i data-lucide="sparkles"></i></div>
+            <div class="chat-bubble" style="padding: 12px 18px;">
+                <div class="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>`;
+        chatbotBody.appendChild(typingEl);
+        lucide.createIcons();
+        chatbotBody.scrollTop = chatbotBody.scrollHeight;
+
         setTimeout(() => {
+            typingEl.remove();
             const botMsg = document.createElement('div');
             botMsg.classList.add('chat-message', 'bot');
+            const now = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             botMsg.innerHTML = `
-                <div class="chat-avatar"><i data-lucide="bot"></i></div>
-                <div class="chat-bubble">I can certainly help with that! Since I'm a demo bot, please use the search bar above to find specific services.</div>
-            `;
+                <div class="chat-avatar"><i data-lucide="sparkles"></i></div>
+                <div>
+                    <div class="chat-bubble">${getBotReply(text)}</div>
+                    <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 4px; margin-left: 4px;">${now}</div>
+                </div>`;
             chatbotBody.appendChild(botMsg);
             lucide.createIcons();
             chatbotBody.scrollTop = chatbotBody.scrollHeight;
-        }, 1000);
+        }, 1200);
     };
 
-    if (chatbotSendBtn) chatbotSendBtn.addEventListener('click', sendMessage);
+    window.sendQuickReply = (text) => sendMessage(text);
+
+    if (chatbotSendBtn) chatbotSendBtn.addEventListener('click', () => sendMessage());
     if (chatbotInput) {
         chatbotInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') sendMessage();
