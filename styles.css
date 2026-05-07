@@ -201,6 +201,12 @@ section {
     align-items: center;
 }
 
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
 .nav-link {
     font-weight: 500;
     position: relative;
@@ -302,6 +308,21 @@ section {
     max-height: 250px;
     opacity: 1;
     margin-top: 20px;
+}
+
+/* Service Prices */
+.service-price {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.service-price span {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-left: 4px;
 }
 
 /* Form Styles */

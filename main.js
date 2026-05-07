@@ -440,4 +440,20 @@ Or contact us directly at <strong>support@fixora.com</strong> or <strong>+92 304
             scrollerTrack.classList.toggle('paused');
         });
     }
+
+    // 11. Password Visibility Toggle
+    const toggleIcons = document.querySelectorAll('.toggle-icon');
+    toggleIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const input = icon.previousElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                input.type = 'password';
+                icon.setAttribute('data-lucide', 'eye');
+            }
+            lucide.createIcons();
+        });
+    });
 });
